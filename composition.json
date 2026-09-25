@@ -1,0 +1,19 @@
+{
+  "client": "mgoblue",
+  "archetype": "proof-led-local-trade",
+  "style": "corporate-professional",
+  "builtAt": "2026-09-25",
+  "signature": [
+    "VideoHero:split",
+    "WhySystems:cards",
+    "Systems:stacked-cards",
+    "WaterHook:concern-grid",
+    "Process:steps",
+    "ProofBand:promise",
+    "OriginStory:community-anchor",
+    "FullBleedBand:light",
+    "Faq:standard",
+    "ServiceAreas:grouped",
+    "ClosingCta:band"
+  ]
+}

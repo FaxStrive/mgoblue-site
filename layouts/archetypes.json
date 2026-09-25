@@ -1,0 +1,168 @@
+{
+  "_readme": [
+    "The machine-readable half of layouts/. Each .md file in this directory is the",
+    "archetype written for a person: where it was measured, when to pick it, image",
+    "density, pacing. This file is the same archetype reduced to what a gate can",
+    "check, so bin/assert-layout-variety.mjs never has to parse prose.",
+    "",
+    "measuredFrom the live page or pages the .md file took its numbers from, all",
+    "         measured 2026-09-24 at 1440 x 900. Several archetypes borrow from",
+    "         more than one site, so this is an array.",
+    "opening  the fixed three every archetype starts with and none may reorder:",
+    "         the hero, why our systems are the best, then a look at our systems.",
+    "         catalogue is the one that takes SystemsGrid rather than Systems at",
+    "         position three, because the index IS its look at our systems. The",
+    "         archetype decides everything after them, and how they are treated.",
+    "requires the components this building must use, in this order, after the",
+    "         opening. Missing one, or using them out of order, is not this",
+    "         archetype.",
+    "forbids  the components that would break this building's character. A",
+    "         diagram-led explainer with a work gallery is a photo essay wearing",
+    "         the wrong name.",
+    "",
+    "Only components actually exported from templates/components/sections/index.ts",
+    "appear in requires and forbids. The .md files also place interactive widgets",
+    "(ConcernRouter, PricingTable, SavingsCalculator, which live in",
+    "components/interactive) and repeated Dividers. Those are real instructions but",
+    "they are not gate-checkable here, so they stay in the prose.",
+    "",
+    "homeImageFloor is the bottom of the measured home-page <img> range the",
+    "archetype's density table gives, videos excluded.",
+    "",
+    "Add an archetype here and in a matching .md file, or the gate will refuse a",
+    "build that declares it."
+  ],
+  "diagram-led-explainer": {
+    "measuredFrom": [
+      "https://myaquaotter.com",
+      "https://the-water-co.vercel.app"
+    ],
+    "opening": [
+      "VideoHero",
+      "WhySystems",
+      "Systems"
+    ],
+    "requires": [
+      "FollowTheWater",
+      "Process",
+      "MacroDetail",
+      "StatOverImage",
+      "ServiceAreas",
+      "Faq",
+      "ClosingCta"
+    ],
+    "forbids": [
+      "WorkGallery",
+      "GalleryBody"
+    ],
+    "homeImageFloor": 10,
+    "note": "The mechanism is the hero: vector stages and a numbered flow carry the page, and photographs appear only as evidence for a claim the diagram already made."
+  },
+  "photo-essay": {
+    "measuredFrom": [
+      "https://intiwatersolutions.com",
+      "https://myaquaotter.com"
+    ],
+    "opening": [
+      "VideoHero",
+      "WhySystems",
+      "Systems"
+    ],
+    "requires": [
+      "FullBleedBand",
+      "PortraitFeature",
+      "MacroDetail",
+      "BleedFigure",
+      "WorkGallery",
+      "StatOverImage",
+      "OverlapCard",
+      "ServiceAreas",
+      "Faq",
+      "ClosingCta"
+    ],
+    "forbids": [
+      "SystemsGrid",
+      "FollowTheWater"
+    ],
+    "homeImageFloor": 22,
+    "note": "Photographs carry the argument and copy annotates them, which makes this the highest media-share archetype and the only one where a section may be almost wordless."
+  },
+  "catalogue": {
+    "measuredFrom": [
+      "https://intiwatersolutions.com",
+      "https://the-water-co.vercel.app"
+    ],
+    "opening": [
+      "VideoHero",
+      "WhySystems",
+      "SystemsGrid"
+    ],
+    "requires": [
+      "Systems",
+      "MacroDetail",
+      "Process",
+      "WorkGallery",
+      "ServiceAreas",
+      "Faq",
+      "ClosingCta"
+    ],
+    "forbids": [
+      "GalleryBody",
+      "PortraitFeature"
+    ],
+    "homeImageFloor": 21,
+    "note": "The product line is the spine: a numbered index of uniform cut-outs, a sticky rail, and specifications where another archetype would put a story, for a reader expected to scan rather than read."
+  },
+  "proof-led-local-trade": {
+    "measuredFrom": [
+      "https://pureaguafl.com"
+    ],
+    "opening": [
+      "VideoHero",
+      "WhySystems",
+      "Systems"
+    ],
+    "requires": [
+      "WaterHook",
+      "Process",
+      "ProofBand",
+      "OriginStory",
+      "Faq",
+      "ServiceAreas",
+      "ClosingCta"
+    ],
+    "forbids": [
+      "WorkGallery",
+      "PortraitFeature",
+      "BleedFigure",
+      "GalleryBody"
+    ],
+    "homeImageFloor": 9,
+    "note": "Trust signals and interactive tools stand in for photography, which is the archetype for the client who has credibility and coverage but no usable pictures."
+  },
+  "editorial-long-read": {
+    "measuredFrom": [
+      "https://intiwatersolutions.com"
+    ],
+    "opening": [
+      "VideoHero",
+      "WhySystems",
+      "Systems"
+    ],
+    "requires": [
+      "FullBleedBand",
+      "PortraitFeature",
+      "OriginStory",
+      "WorkGallery",
+      "ProofBand",
+      "WaterHook",
+      "ServiceAreas",
+      "ClosingCta"
+    ],
+    "forbids": [
+      "Divider"
+    ],
+    "homeImageFloor": 18,
+    "note": "The tallest building: chaptered rather than sectioned, numbered rather than listed, with full-bleed media bands as punctuation and a named human at the centre."
+  }
+}

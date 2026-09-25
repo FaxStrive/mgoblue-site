@@ -1,0 +1,16 @@
+{
+  "systems": {
+    "Water Filters": {
+      "whatIsIncluded": ["Sediment pre-filter", "Carbon filter stage", "Final polishing stage"]
+    },
+    "Water Filtration": {
+      "whatIsIncluded": ["Sediment pre-filter", "Iron oxidation stage", "Carbon polishing stage", "UV sterilization"]
+    },
+    "Water Softeners": {
+      "whatIsIncluded": ["Resin ion exchange tank", "Brine regeneration tank", "Control valve"]
+    },
+    "Well Water": {
+      "whatIsIncluded": ["Sediment pre-filter", "Iron and manganese treatment", "UV sterilization", "Final polish"]
+    }
+  }
+}
