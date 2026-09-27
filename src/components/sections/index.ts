@@ -85,3 +85,6 @@ export type { FigureProps } from "./Figure";
 
 export { default as WorkGallery } from "./WorkGallery";
 export type { WorkGalleryProps, WorkGalleryItem } from "./WorkGallery";
+
+export { default as Testimonials } from "./Testimonials";
+export type { TestimonialsProps, TestimonialItem } from "./Testimonials";

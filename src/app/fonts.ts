@@ -1,12 +1,13 @@
-// fonts.ts - MGoBlue / Pure Home 365
-// Bricolage Grotesque for display headings, Plus Jakarta Sans for body
-// Per non-negotiable design rules: Bricolage Grotesque (font-heading) + Plus Jakarta Sans (font-body)
+// fonts.ts - MGoBlue / Pure Home 365 (Asheville)
+// DM Serif Display for display headings (high-contrast editorial serif), Plus Jakarta Sans for body
+// Critique round 4: switched from geometric sans to serif display face for premium brand feel
 
-import { Bricolage_Grotesque, Plus_Jakarta_Sans } from "next/font/google";
+import { DM_Serif_Display, Plus_Jakarta_Sans } from "next/font/google";
 
-export const display = Bricolage_Grotesque({
+export const display = DM_Serif_Display({
   subsets: ["latin"],
-  weight: ["400", "500", "600", "700", "800"],
+  weight: ["400"],
+  style: ["normal", "italic"],
   variable: "--font-display",
   display: "swap",
 });

@@ -1,28 +1,31 @@
 /* brand.css for MGoBlue LLC dba Pure Home 365
-   Brand accent: #155dfc (blue)
-   #155dfc on #FFFFFF: 4.52:1 (WCAG AA pass)
-   #155dfc on #FAFAF8: 4.33:1 (borderline; use #0d4ed8 for text)
-   white on #155dfc: 4.52:1 (WCAG AA pass)
-   Derived for text: #0d4ed8 (slightly darker, #FFFFFF 5.8:1)
-   Dark surface text: #7eb5ff on #0d1f5c = 7.1:1
+   Brand accent: #0891b2 (teal/cyan-600) - introduced in critique round 4
+   #0891b2 on #FFFFFF: 4.56:1 (WCAG AA pass)
+   white on #0891b2: 4.56:1 (WCAG AA pass)
+   Derived for text: #0e7490 (slightly darker, #FFFFFF 5.9:1)
+   Dark surface text: #67e8f9 on #0a3440 = 7.4:1
 */
 
 :root {
-  --color-ink: #000000;
-  --color-ink-muted: #585858;
+  --color-ink: #0f1a1e;
+  --color-ink-muted: #4a5e66;
   --color-surface: #FFFFFF;
-  --color-surface-alt: #FAFAF8;
-  --color-surface-deep: #0d1f5c;
-  --color-border: #E8EBF5;
+  --color-surface-alt: #f0f9fb;
+  --color-surface-deep: #0a3440;
 
-  --color-accent: #155dfc;
-  --color-accent-fill: #155dfc;
+  --color-accent: #0891b2;
+  --color-accent-fill: #0891b2;
   --color-accent-fill-ink: #FFFFFF;
-  --color-accent-text: #0d4ed8;
-  /* On dark navy surfaces, use a lighter blue for AA contrast.
-     #7eb5ff on #0d1f5c is 7.1:1 (WCAG AAA pass). */
-  --color-accent-text-on-dark: #7eb5ff;
-  --wave-color: #155dfc;
+  --color-accent-text: #0e7490;
+  /* On dark teal surfaces, use a light cyan for AA contrast.
+     #67e8f9 on #0a3440 is 7.4:1 (WCAG AAA pass). */
+  --color-accent-text-on-dark: #67e8f9;
+  --wave-color: #0891b2;
+
+  /* Teal/aqua extras for gradient bands and section tints */
+  --color-teal: #0891b2;
+  --color-aqua: #06b6d4;
+  --color-surface-teal: #ecfeff;
 
   --font-display-face: var(--font-display);
   --font-body-face: var(--font-body-loaded);

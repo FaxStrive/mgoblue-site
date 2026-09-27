@@ -43,6 +43,26 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${display.variable} ${body.variable}`}>
       <body>
+        {/* Announcement bar: free water test offer with urgency */}
+        <div
+          style={{
+            backgroundColor: "var(--color-accent-fill)",
+            color: "#ffffff",
+            textAlign: "center",
+            padding: "10px 20px",
+            fontSize: "14px",
+            fontWeight: 600,
+            letterSpacing: "0.01em",
+          }}
+        >
+          Limited slots: Free water test in your home. No obligation.{" "}
+          <a
+            href="/contact"
+            style={{ color: "#ffffff", textDecoration: "underline", textUnderlineOffset: "2px" }}
+          >
+            Schedule yours today
+          </a>
+        </div>
         <Header
           companyName={facts.dba}
           logoSrc={facts.logoPath}
