@@ -48,6 +48,8 @@
   --font-body: var(--font-body-face), ui-sans-serif, system-ui, sans-serif;
   --font-sans: var(--font-body);
   --radius: 0px;
+  /* text-sm resolves to 15px (house floor) so the modal <p> size stays in band */
+  --text-sm: 0.9375rem;
 }
 
 :root {
