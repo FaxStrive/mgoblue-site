@@ -1,0 +1,851 @@
+@import "tailwindcss";
+
+/* ---------------------------------------------------------------------------
+   The house look, expressed once, with the scale coming from a style.
+
+   The values below (h1 40px at 390 / 96px at 1440, and so on) are the SEED's
+   own default, not "the" scale: they are exactly styles/wavy/style.json's
+   scale, solved into clamps, because wavy is the house default style. Every
+   other style replaces every value in this file with its own, through
+   bin/stitch-brand-from-facts.mjs --style <name> --css-out, which writes
+   src/app/brand.css with :root overrides computed from that style's own
+   typography.scale (see styles/TOKEN-CONTRACT.md for the full variable list
+   and styles/<name>/style.json for a given style's numbers).
+
+   bin/assert-house-look.mjs measures the RENDERED page against the site's own
+   style.json (written to the site root by --css-out), so the scale has to be
+   true at 1440 and at 390 without either viewport being a special case. Every
+   size below is a clamp solved for both ends of that range. The algebra, so a
+   generator never has to hand-write one: a clamp that reads `mobileTarget` at
+   a 390px viewport and `desktopTarget` at 1440px is
+
+     clamp(mobileTarget, a + coef*vw, desktopTarget)
+     coef = (desktopTarget - mobileTarget) / 10.5      (10.5 = (1440-390)/100)
+     a    = mobileTarget - coef * 3.9                  (3.9 = 390/100)
+
+   which is where `clamp(40px, 19.2px + 5.3333vw, 96px)` below comes from: it
+   is 40 at 390 and 96 at 1440.
+
+     h1       40px at 390, 96px at 1440   (house default; wavy's own scale)
+     h2       36px at 390, 64px at 1440
+     body     16px at 390, 18px at 1440   (no style declares a body_size axis,
+                                            so every style keeps this default)
+     section  72px at 390, 144px at 1440
+
+   The .shell is width minus a fixed 40px so the gutter is 20px each side at
+   390 and the container measures 1200px at 1440. Shape (--radius-*), the
+   divider (--divider-*), the image treatment (--figure-*, --image-frame) and
+   motion (--motion-*, --sweep-*) all work the same way: a neutral default
+   here, a per-style override in brand.css, one set of CSS rules below that
+   reads the numbers and never branches on a style's name.
+
+   Colours are variables with neutral defaults. bin/derive-accent.mjs and the
+   brand file overwrite them per client. Nothing here names a client.
+--------------------------------------------------------------------------- */
+
+@theme {
+  --font-heading: var(--font-display-face), ui-sans-serif, system-ui, sans-serif;
+  --font-body: var(--font-body-face), ui-sans-serif, system-ui, sans-serif;
+  --font-sans: var(--font-body);
+  --radius: 0px;
+}
+
+:root {
+  --color-ink: #111111;
+  --color-ink-muted: #46484d;
+  --color-surface: #ffffff;
+  --color-surface-alt: #fafaf8;
+  --color-surface-deep: #101113;
+  --color-border: #e2e2df;
+
+  /* accent-fill carries white text, accent-text sits on light surfaces.
+     bin/derive-accent.mjs replaces all four and guarantees 4.5:1. */
+  --color-accent: #1f4f8f;
+  --color-accent-fill: #1f4f8f;
+  --color-accent-fill-ink: #ffffff;
+  --color-accent-text: #1a4479;
+  --color-accent-text-on-dark: #1a4479;
+
+  --h1: clamp(40px, 19.2px + 5.3333vw, 96px);
+  --h2: clamp(36px, 25.6px + 2.6667vw, 64px);
+  --h3: clamp(21px, 18.4px + 0.6667vw, 28px);
+  --body: clamp(16px, 15.26px + 0.1905vw, 18px);
+  --section-pad: clamp(72px, 45.2571px + 6.8571vw, 144px);
+  --gutter: 20px;
+  --shell: 1200px;
+
+  /* Type, the rest: the house default (wavy) values. A style overrides all
+     four with its own desktop-band targets; none of them are responsive, by
+     the token contract. */
+  --h1-weight: 400;
+  --h1-tracking: -0.035em;
+  --h1-leading: 1.0;
+  --body-leading: 1.65;
+  --font-display-face: var(--font-display, ui-sans-serif);
+  --font-body-face: var(--font-body-loaded, ui-sans-serif);
+
+  /* Shape. No component hardcodes a corner; every one reads one of these. The
+     house default is square, matching the old fleet rule, and a style is free
+     to round any or all of them. */
+  --radius-button: 0px;
+  --radius-card: 0px;
+  --radius-media: 0px;
+  --radius-input: 0px;
+  --radius-pill: 999px;
+
+  /* Divider: the edge between two tones. Static in every style. The four
+     numeric knobs below are what .divider actually reads; --divider-shape is
+     the human-readable name, kept for anything in JS that wants it. */
+  --divider-shape: none;
+  --divider-height: 0px;
+  --divider-tilt: 0;
+  --divider-curve: 0;
+  --divider-opacity: 0;
+
+  /* Image treatment. --image-treatment is the human-readable name; .figure
+     reads the numeric/length knobs beside it. --image-frame is declared as an
+     enum in style.json (none | hairline | border) but lands here as the
+     resolved border width, because that is the only form CSS has a use for. */
+  --image-treatment: rounded-card;
+  --image-frame: 0px;
+  --figure-inset: 0px;
+  --figure-pad: 0px;
+  --figure-bg: transparent;
+  /* --figure-fit is how .figure img/video fills its box. It is cover for
+     every treatment: a photograph crops to the box its component declared
+     rather than letterboxing inside it. contain belongs to a true cut-out,
+     a subject already isolated on a transparent or white background, and a
+     cut-out opts in one image at a time via <Figure cutout>, which sets
+     --figure-fit inline and marks the wrapper data-cutout="true" so gate 12
+     can tell a declared cut-out from an accident. A style never sets
+     contain for the whole site. --figure-position is the anchor point
+     object-position reads; center unless a treatment says otherwise. */
+  --figure-fit: cover;
+  --figure-position: center;
+
+  /* The motion layer. Durations and easings are tokens so a client can be
+     slowed down or sped up in one place, and so the gate can read them. */
+  --motion-fast: 150ms;
+  --motion-base: 200ms;
+  --motion-slow: 250ms;
+  --motion-reveal: 620ms;
+  --motion-ambient: 18s;
+  --motion-ease: cubic-bezier(0.22, 0.61, 0.36, 1);
+  --motion-ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --reveal-distance: 24px;
+  --reveal-stagger: 80ms;
+
+  --motion-reveal-travel: 18px;
+  --motion-lift: 4px;
+  --motion-sweep: fill-up;
+
+  /* Numeric knobs for .btn-sweep. This is the fill-up default: rises from the
+     bottom of the button. brand.css overwrites the whole set per style; see
+     the SWEEP_PARAMS table in bin/stitch-brand-from-facts.mjs for what each
+     of the four sweeps sets these to. */
+  --sweep-origin-x: 50%;
+  --sweep-origin-y: 100%;
+  --sweep-start-x: 0%;
+  --sweep-start-y: 100%;
+  --sweep-end-x: 0%;
+  --sweep-end-y: 0%;
+  --sweep-start-scale: 1;
+  --sweep-end-scale: 1;
+  --sweep-start-opacity: 1;
+  --sweep-end-opacity: 1;
+  --sweep-rotate: 0deg;
+  --sweep-ease: cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+
+@layer base {
+  *,
+  *::before,
+  *::after {
+    border-radius: 0;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    margin: 0;
+    font-family: var(--font-body);
+    font-size: var(--body);
+    line-height: var(--body-leading);
+    color: var(--color-ink);
+    background-color: var(--color-surface);
+    -webkit-font-smoothing: antialiased;
+    /* the overflow check in the gate is unforgiving and a single wide child
+       anywhere is enough to fail it */
+    overflow-x: hidden;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: var(--font-heading);
+    margin: 0;
+    text-wrap: balance;
+  }
+
+  h1 {
+    font-size: var(--h1);
+    font-weight: var(--h1-weight);
+    line-height: var(--h1-leading);
+    letter-spacing: var(--h1-tracking);
+  }
+
+  h2 {
+    font-size: var(--h2);
+    font-weight: 400;
+    line-height: 1.06;
+    letter-spacing: -0.02em;
+  }
+
+  h3 {
+    font-size: var(--h3);
+    font-weight: 500;
+    line-height: 1.2;
+    letter-spacing: -0.01em;
+  }
+
+  p {
+    margin: 0;
+    font-size: var(--body);
+  }
+
+  img,
+  video,
+  svg {
+    max-width: 100%;
+  }
+
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+}
+
+/* h1 tracking is --h1-tracking, a single non-responsive value from the
+   style's desktop band, by the token contract. h2 has no such token yet, so
+   it keeps a small desktop-only tightening here. */
+@media (min-width: 1024px) {
+  h2 {
+    letter-spacing: -0.03em;
+  }
+}
+
+@layer components {
+  /* Every section on every page uses this. The gate reads the modal
+     padding-top across sections, so a section that opts out drags the page. */
+  .section {
+    padding-top: var(--section-pad);
+    padding-bottom: var(--section-pad);
+    position: relative;
+  }
+
+  /* Named .shell, not .container: Tailwind v4 ships its own `container`
+     utility, utilities outrank components in the cascade, and it quietly won.
+     The measured result was a 1280px container on desktop and a full-bleed
+     390px one on mobile, which reads as "gutter not found" and fails the gate
+     for a reason that has nothing to do with the page. */
+  .shell {
+    width: calc(100% - (var(--gutter) * 2));
+    max-width: var(--shell);
+    margin-inline: auto;
+  }
+
+  .eyebrow {
+    font-family: var(--font-body);
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--color-accent-text);
+  }
+
+  .lede {
+    font-size: clamp(17px, 15.5px + 0.38vw, 21px);
+    line-height: 1.6;
+    color: var(--color-ink-muted);
+  }
+
+  /* Corner comes from --radius-button, set per style in brand.css (wavy is
+     0px, so it still reads square there) - fixed 2026-09-23, see
+     styles/TOKEN-CONTRACT.md. The old rule here hardcoded square corners for
+     every style, which left --radius-button declared in globals.css but
+     never consumed by any component; no button ever reflected a style's
+     shape. The fill sweeps in from the left on hover and focus. The sweep is
+     a ::after overlay on scaleX, so it paints without touching layout:
+     nothing moves, nothing resizes, and the label stays exactly where it
+     was. The arrow slides with it.
+
+     The pressed state is a 1px translate, not a size change, for the same
+     reason. The focus ring is the global :focus-visible outline below, and
+     .btn does not override it. */
+  .btn {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    min-height: 56px;
+    padding: 0 34px;
+    font-family: var(--font-body);
+    font-size: 16px;
+    font-weight: 600;
+    letter-spacing: 0.01em;
+    border: 1px solid transparent;
+    border-radius: var(--radius-button);
+    cursor: pointer;
+    overflow: hidden;
+    isolation: isolate;
+    transition: color var(--motion-slow) var(--motion-ease),
+      border-color var(--motion-slow) var(--motion-ease),
+      transform var(--motion-fast) var(--motion-ease);
+  }
+
+  .btn::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    transform: scaleX(0);
+    transform-origin: left center;
+    transition: transform var(--motion-slow) var(--motion-ease-out);
+  }
+
+  .btn:hover::after,
+  .btn:focus-visible::after {
+    transform: scaleX(1);
+  }
+
+  .btn:active {
+    transform: translateY(1px);
+  }
+
+  /* The arrow is a span the caller puts inside the button. It slides with the
+     sweep. Marked aria-hidden at the call site: it is decoration. */
+  .btn-arrow {
+    display: inline-block;
+    transition: transform var(--motion-slow) var(--motion-ease-out);
+  }
+
+  .btn:hover .btn-arrow,
+  .btn:focus-visible .btn-arrow {
+    transform: translateX(5px);
+  }
+
+  /* The arrow itself is an inline SVG that inherits currentColor. block display
+     keeps it off the text baseline, so it adds no descender gap inside the
+     button. It was the two characters "-" and ">" until 2026-09-22, which
+     rendered on a client site as a hyphen beside a greater-than sign. */
+  .btn-arrow svg {
+    display: block;
+  }
+
+  .btn-primary {
+    background-color: var(--color-accent-fill);
+    color: var(--color-accent-fill-ink);
+  }
+
+  .btn-primary::after {
+    background-color: var(--color-ink);
+  }
+
+  .btn-primary:hover,
+  .btn-primary:focus-visible {
+    color: #ffffff;
+  }
+
+  /* Secondary: outline at rest, filled on hover. */
+  .btn-ghost {
+    background-color: transparent;
+    color: var(--color-ink);
+    border-color: var(--color-border);
+  }
+
+  .btn-ghost::after {
+    background-color: var(--color-ink);
+  }
+
+  .btn-ghost:hover,
+  .btn-ghost:focus-visible {
+    color: #ffffff;
+    border-color: var(--color-ink);
+  }
+
+  .btn-on-dark {
+    background-color: transparent;
+    color: #ffffff;
+    border-color: rgba(255, 255, 255, 0.55);
+  }
+
+  .btn-on-dark::after {
+    background-color: #ffffff;
+  }
+
+  .btn-on-dark:hover,
+  .btn-on-dark:focus-visible {
+    color: var(--color-ink);
+    border-color: #ffffff;
+  }
+
+  /* ---------------------------------------------------------------------
+     Cards lift, and the photo inside grows a little within its own frame.
+     .card-media clips, so the scale never spills past the card edge and
+     never widens the page (the overflow check in the house-look gate is
+     unforgiving about that).
+     --------------------------------------------------------------------- */
+  .card {
+    position: relative;
+    transition: transform var(--motion-slow) var(--motion-ease),
+      box-shadow var(--motion-slow) var(--motion-ease),
+      border-color var(--motion-slow) var(--motion-ease);
+  }
+
+  .card:hover,
+  .card:focus-within {
+    transform: translateY(-6px);
+    box-shadow: 0 18px 44px rgba(0, 0, 0, 0.13);
+  }
+
+  .card-media {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .card-media img {
+    transition: transform 700ms var(--motion-ease-out);
+  }
+
+  .card:hover .card-media img,
+  .card:focus-within .card-media img {
+    transform: scale(1.045);
+  }
+
+  /* ---------------------------------------------------------------------
+     Scroll reveals. The rule that hides anything is scoped to
+     [data-reveal="armed"], and only the Reveal client component sets that
+     attribute, after it has mounted AND checked that motion is allowed. So
+     with no JavaScript, a dead IntersectionObserver, or reduced motion, the
+     element is simply visible: the failure mode of this effect is a site
+     without the effect, never a site with invisible text.
+     --------------------------------------------------------------------- */
+  [data-reveal="armed"] {
+    opacity: 0;
+    transform: translateY(var(--reveal-distance));
+    transition: opacity var(--motion-reveal) var(--motion-ease-out),
+      transform var(--motion-reveal) var(--motion-ease-out);
+    transition-delay: var(--reveal-delay, 0ms);
+    will-change: opacity, transform;
+  }
+
+  [data-reveal="shown"] {
+    opacity: 1;
+    transform: none;
+    transition: opacity var(--motion-reveal) var(--motion-ease-out),
+      transform var(--motion-reveal) var(--motion-ease-out);
+    transition-delay: var(--reveal-delay, 0ms);
+  }
+
+  /* ---------------------------------------------------------------------
+     REVOKED 2026-09-22: the wave divider and the caustics wash are removed,
+     and the --wave-color token with them. Both read as a coloured blob that
+     never reached the edge of the page. A section change is carried by a
+     photograph now: FullBleedBand, BleedFigure, OverlapCard, MacroDetail.
+     See templates/components/sections/README.md.
+     --------------------------------------------------------------------- */
+
+  /* ---------------------------------------------------------------------
+     The phone-only sticky bar: call, and get a quote. It sits above the
+     safe-area inset so it clears the iOS home indicator, and it takes
+     itself away when the footer call to action is on screen, so it never
+     covers the thing it is duplicating.
+     --------------------------------------------------------------------- */
+  .sticky-bar {
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 60;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding-bottom: env(safe-area-inset-bottom, 0px);
+    background-color: var(--color-surface-deep);
+    transform: translateY(100%);
+    transition: transform var(--motion-slow) var(--motion-ease-out);
+  }
+
+  .sticky-bar[data-shown="true"] {
+    transform: translateY(0);
+  }
+
+  .sticky-bar a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 56px;
+    font-family: var(--font-body);
+    font-size: 15px;
+    font-weight: 600;
+    color: #ffffff;
+  }
+
+  .sticky-bar a + a {
+    background-color: var(--color-accent-fill);
+    color: var(--color-accent-fill-ink);
+  }
+
+  @media (min-width: 768px) {
+    .sticky-bar {
+      display: none;
+    }
+  }
+
+  .on-dark {
+    background-color: var(--color-surface-deep);
+    color: #ffffff;
+  }
+
+  .on-dark .lede,
+  .on-dark p {
+    color: rgba(255, 255, 255, 0.86);
+  }
+
+  .on-dark .eyebrow {
+    color: #ffffff;
+  }
+
+  .on-alt {
+    background-color: var(--color-surface-alt);
+  }
+
+  /* GAP 6: center section h2 tags for visual symmetry with the reference */
+  .section h2 {
+    text-align: center;
+  }
+
+  :focus-visible {
+    outline: 3px solid var(--color-accent-text);
+    outline-offset: 2px;
+  }
+
+  /* ---------------------------------------------------------------------------
+     FollowTheWater. The numbered flow diagram. Laid out here rather than with
+     utility classes because the connecting rail has to change axis at the
+     breakpoint: a vertical line down the left on mobile, a horizontal line
+     through the glyphs on desktop. Nothing here animates, so a reduced-motion
+     visitor sees exactly the same diagram.
+  --------------------------------------------------------------------------- */
+  .ftw-track {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  .ftw-stage { position: relative; display: flex; flex-direction: column; gap: 0.75rem; }
+  .ftw-rail { display: flex; align-items: center; gap: 0; margin-bottom: 0.5rem; }
+  .ftw-node {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 5.5rem;
+    height: 5.5rem;
+    flex: 0 0 auto;
+    border: 1px solid rgba(255, 255, 255, 0.28);
+    color: var(--color-accent-text-on-dark);
+    background-color: rgba(255, 255, 255, 0.04);
+  }
+  .ftw-line { display: block; height: 1px; flex: 1 1 auto; background-color: rgba(255, 255, 255, 0.28); }
+  .ftw-line.is-hidden { background-color: transparent; }
+  .ftw-index {
+    font-family: var(--font-display-face);
+    font-size: 0.875rem;
+    letter-spacing: 0.12em;
+    color: var(--color-accent-text-on-dark);
+  }
+  .ftw-label { margin: 0; }
+  .ftw-note { margin: 0; font-size: 0.875rem; line-height: 1.6; color: rgba(255, 255, 255, 0.72); }
+
+  @media (min-width: 768px) {
+    .ftw-track { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  }
+  @media (min-width: 1024px) {
+    .ftw-track { grid-auto-flow: column; grid-auto-columns: minmax(0, 1fr); grid-template-columns: none; gap: 0; }
+    .ftw-stage { padding-right: 0; }
+    .ftw-rail { margin-bottom: 1.25rem; }
+    .ftw-label, .ftw-index, .ftw-note { padding-right: 1.5rem; }
+  }
+
+  /* VideoHero's full-bleed variant depends on this class: it is what keeps the
+     hero exactly one viewport tall instead of taller. Without it the copied
+     VideoHero.tsx component still renders, but the hero grows past the screen
+     again. 100vh is the fallback for a browser with no svh support; the
+     @supports block overrides it with 100svh where that unit is understood, so
+     the hero never grows taller than the visible screen behind mobile browser
+     chrome. Padding is zeroed here because the site's own .section padding,
+     stacked on top of an already-full-viewport box, is what caused the
+     overflow in the first place. */
+  .hero-full-bleed {
+    min-height: 100vh;
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+
+  @supports (height: 100svh) {
+    .hero-full-bleed {
+      min-height: 100svh;
+    }
+  }
+
+  /* -------------------------------------------------------------------
+     .btn-sweep: the hover sweep named by --motion-sweep, on every button.
+     One ::before, in --color-accent-fill. The character (fill-up rises from
+     the bottom, flow-sweep slides left to right, ripple scales from a point,
+     surface-wobble eases with an overshoot) comes ENTIRELY from the numeric
+     variables brand.css sets per style; this rule never branches on a
+     style's name:
+
+       --sweep-origin-x/-y     transform-origin of the fill
+       --sweep-start-x/-y      where the fill sits at rest (translate)
+       --sweep-end-x/-y        where the fill sits on hover/focus
+       --sweep-start-scale     scale at rest (0 for ripple: a point)
+       --sweep-end-scale       scale on hover (1: fully covers the button)
+       --sweep-start-opacity / --sweep-end-opacity
+       --sweep-rotate          a small rotation added on hover, only nonzero
+                                for surface-wobble, which is what reads as a
+                                wobble rather than a plain slide
+       --sweep-ease            the easing curve; fill-up/flow-sweep use the
+                                house ease, ripple and surface-wobble use a
+                                cubic-bezier with overshoot for the spring
+
+     The element carrying .btn-sweep needs `position: relative; overflow:
+     hidden; isolation: isolate;` of its own (.btn already has this).
+     ------------------------------------------------------------------- */
+  .btn-sweep {
+    position: relative;
+  }
+
+  .btn-sweep::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background-color: var(--color-accent-fill);
+    transform-origin: var(--sweep-origin-x) var(--sweep-origin-y);
+    transform: translate(var(--sweep-start-x), var(--sweep-start-y))
+      scale(var(--sweep-start-scale)) rotate(0deg);
+    opacity: var(--sweep-start-opacity);
+    transition: transform var(--motion-slow) var(--sweep-ease),
+      opacity var(--motion-slow) var(--sweep-ease);
+  }
+
+  .btn-sweep:hover::before,
+  .btn-sweep:focus-visible::before {
+    transform: translate(var(--sweep-end-x), var(--sweep-end-y))
+      scale(var(--sweep-end-scale)) rotate(var(--sweep-rotate));
+    opacity: var(--sweep-end-opacity);
+  }
+
+  /* -------------------------------------------------------------------
+     .divider: the static edge between two tones. Never animated, in any
+     style. Height is --divider-height; the shape is a clip-path polygon
+     whose points are pushed by two numbers only:
+
+       --divider-tilt    0..1, a straight-line tilt across the width. 0 for
+                          straight/curved/none, nonzero for angled.
+       --divider-curve   0..1, an arched bulge through the middle of the
+                          edge (a parabola: 4t(1-t), peaking at the centre).
+                          0 for straight/angled/none, high for curved.
+       --divider-opacity 0 collapses it to invisible (paired with height 0
+                          for "none"); 1 otherwise.
+
+     One rule produces all three shapes from those numbers; nothing here
+     picks a shape by name.
+     ------------------------------------------------------------------- */
+  .divider {
+    width: 100%;
+    height: var(--divider-height);
+    opacity: var(--divider-opacity);
+    background-color: var(--color-surface);
+    clip-path: polygon(
+      0% calc(var(--divider-tilt) * 0% + var(--divider-curve) * 0%),
+      16.66% calc(var(--divider-tilt) * 16.66% + var(--divider-curve) * 61.11%),
+      33.33% calc(var(--divider-tilt) * 33.33% + var(--divider-curve) * 88.88%),
+      50% calc(var(--divider-tilt) * 50% + var(--divider-curve) * 100%),
+      66.66% calc(var(--divider-tilt) * 66.66% + var(--divider-curve) * 88.88%),
+      83.33% calc(var(--divider-tilt) * 83.33% + var(--divider-curve) * 61.11%),
+      100% calc(var(--divider-tilt) * 100% + var(--divider-curve) * 0%),
+      100% 100%,
+      0% 100%
+    );
+  }
+
+  /* -------------------------------------------------------------------
+     .figure: a figure rendered per --image-treatment, through numeric knobs
+     brand.css sets rather than a branch on the treatment's name:
+
+       --figure-inset   0 for full-bleed (spans the shell edge to edge), the
+                        gutter for rounded-card and isolated-on-white
+       --radius-media   the figure's corner (0 for full-bleed and
+                        isolated-on-white, the style's media radius for
+                        rounded-card)
+       --figure-pad     0 except isolated-on-white, which gets generous
+                        padding so the subject sits inside it uncropped
+       --figure-bg      the surface the figure sits on (transparent except
+                        isolated-on-white)
+       --image-frame    the border width (0 unless the style asks for a
+                        hairline or a border)
+       --figure-fit     how the img/video fills its box: cover for every
+                        treatment; contain only on a single image that
+                        declared itself a cut-out via <Figure cutout>
+       --figure-position  the object-position anchor, center unless a
+                        treatment says otherwise
+     ------------------------------------------------------------------- */
+  .figure {
+    margin-inline: var(--figure-inset);
+    padding: var(--figure-pad);
+    background-color: var(--figure-bg);
+    border-radius: var(--radius-media);
+    border: var(--image-frame) solid var(--color-border);
+    overflow: hidden;
+  }
+
+  .figure img,
+  .figure video {
+    display: block;
+    width: 100%;
+    height: auto;
+    border-radius: inherit;
+    object-fit: var(--figure-fit, cover);
+    object-position: var(--figure-position, center);
+  }
+
+  /* -------------------------------------------------------------------
+     .reveal: scroll reveal, travels --motion-reveal-travel over
+     --motion-slow. Same [data-reveal] attribute contract as the rest of the
+     page (a small client component arms it after checking motion is
+     allowed), so with no JavaScript the element carries no [data-reveal]
+     attribute at all and this rule never applies: it is visible by default.
+     ------------------------------------------------------------------- */
+  .reveal[data-reveal="armed"] {
+    opacity: 0;
+    transform: translateY(var(--motion-reveal-travel));
+    transition: opacity var(--motion-slow) var(--motion-ease-out),
+      transform var(--motion-slow) var(--motion-ease-out);
+  }
+
+  .reveal[data-reveal="shown"] {
+    opacity: 1;
+    transform: none;
+    transition: opacity var(--motion-slow) var(--motion-ease-out),
+      transform var(--motion-slow) var(--motion-ease-out);
+  }
+
+  /* -------------------------------------------------------------------
+     .lift: hover raises by --motion-lift over --motion-base.
+     ------------------------------------------------------------------- */
+  .lift {
+    transition: transform var(--motion-base) var(--motion-ease);
+  }
+
+  .lift:hover,
+  .lift:focus-within {
+    transform: translateY(calc(-1 * var(--motion-lift)));
+  }
+
+  /* -------------------------------------------------------------------
+     .menu-anim: a dropdown (the nav included) that opens and closes over
+     --motion-base with no layout shift and no clipping once open. The
+     grid-template-rows 0fr -> 1fr trick animates to an intrinsic height
+     without ever guessing a fixed max-height, so open content is never
+     clipped. The caller toggles [data-open="true"] and puts everything that
+     should collapse inside one child element (a single wrapping div is
+     enough); that child needs `min-height: 0; overflow: hidden;` for the
+     trick to work, which this rule also provides via the `> *` selector so
+     the caller does not have to remember it.
+     ------------------------------------------------------------------- */
+  .menu-anim {
+    display: grid;
+    grid-template-rows: 0fr;
+    transition: grid-template-rows var(--motion-base) var(--motion-ease);
+  }
+
+  .menu-anim > * {
+    overflow: hidden;
+    min-height: 0;
+  }
+
+  .menu-anim[data-open="true"] {
+    grid-template-rows: 1fr;
+  }
+}
+
+/* prefers-reduced-motion: reduce turns the whole motion layer off. Not
+   shortened, not softened: no transition, no animation, no parallax (the
+   components check the same media query in JavaScript), and every revealed
+   element at full opacity with no offset. A visitor who asks for no motion
+   gets a static site, not a fast one. */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    transition: none !important;
+    scroll-behavior: auto !important;
+  }
+
+  [data-reveal],
+  [data-reveal="armed"],
+  [data-reveal="shown"] {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+
+  /* .reveal shares the [data-reveal] contract, so the rule above already
+     covers it; restated here because it is a distinct class in the token
+     contract and a reviewer should not have to know that. */
+  .reveal,
+  .reveal[data-reveal="armed"],
+  .reveal[data-reveal="shown"] {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+
+  /* .btn-sweep: the *,*::before,*::after rule above already kills the
+     transition, so the fill snaps instead of sweeping; nothing here needs to
+     force a visible state because the button's label was never dependent on
+     the sweep to be readable. */
+
+  /* .divider is static in every style already; nothing to stop. */
+
+  /* .lift: no residual raise once the transition is gone. */
+  .lift:hover,
+  .lift:focus-within {
+    transform: none !important;
+  }
+
+  /* .menu-anim: still opens and closes (that is state, not motion), just
+     without the height transition. Nothing here is left invisible: a closed
+     menu is supposed to be collapsed, not a reduced-motion casualty. */
+
+  .sticky-bar {
+    transform: translateY(100%);
+  }
+
+  .sticky-bar[data-shown="true"] {
+    transform: translateY(0);
+  }
+}

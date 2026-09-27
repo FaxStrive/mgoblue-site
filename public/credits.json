@@ -1,0 +1,231 @@
+{
+  "assets": [
+    {
+      "file": "/images/hero-poster.jpg",
+      "source": "Pexels",
+      "sourceUrl": "https://www.pexels.com",
+      "license": "Pexels License"
+    },
+    {
+      "file": "/images/about/about-hero.jpg",
+      "source": "Pexels",
+      "sourceUrl": "https://www.pexels.com",
+      "license": "Pexels License"
+    },
+    {
+      "file": "/images/stat-bg.jpg",
+      "source": "Pexels",
+      "sourceUrl": "https://www.pexels.com",
+      "license": "Pexels License"
+    },
+    {
+      "file": "/images/services/services-hero-bg.jpg",
+      "source": "Pexels",
+      "sourceUrl": "https://www.pexels.com",
+      "license": "Pexels License"
+    },
+    {
+      "file": "/images/services/water-filters-hero.jpg",
+      "source": "Pexels",
+      "sourceUrl": "https://www.pexels.com",
+      "license": "Pexels License"
+    },
+    {
+      "file": "/images/services/water-filtration-hero.jpg",
+      "source": "Pexels",
+      "sourceUrl": "https://www.pexels.com",
+      "license": "Pexels License"
+    },
+    {
+      "file": "/images/services/water-softeners-hero.jpg",
+      "source": "Pexels",
+      "sourceUrl": "https://www.pexels.com",
+      "license": "Pexels License"
+    },
+    {
+      "file": "/images/services/well-water-hero.jpg",
+      "source": "Pexels",
+      "sourceUrl": "https://www.pexels.com",
+      "license": "Pexels License"
+    },
+    {
+      "file": "/images/services/idx-water-filters.jpg",
+      "source": "Pexels",
+      "sourceUrl": "https://www.pexels.com",
+      "license": "Pexels License"
+    },
+    {
+      "file": "/images/services/idx-water-filtration.jpg",
+      "source": "Pexels",
+      "sourceUrl": "https://www.pexels.com",
+      "license": "Pexels License"
+    },
+    {
+      "file": "/images/services/idx-water-softeners.jpg",
+      "source": "Pexels",
+      "sourceUrl": "https://www.pexels.com",
+      "license": "Pexels License"
+    },
+    {
+      "file": "/images/services/idx-well-water.jpg",
+      "source": "Pexels",
+      "sourceUrl": "https://www.pexels.com",
+      "license": "Pexels License"
+    },
+    {
+      "file": "/images/local/asheville-install-scene.jpg",
+      "source": "Pexels",
+      "sourceUrl": "https://www.pexels.com",
+      "license": "Pexels License"
+    },
+    {
+      "file": "/images/featured/install-featured-1.jpg",
+      "source": "Pexels",
+      "sourceUrl": "https://www.pexels.com",
+      "license": "Pexels License"
+    },
+    {
+      "file": "/images/featured/install-featured-2.jpg",
+      "source": "Pexels",
+      "sourceUrl": "https://www.pexels.com",
+      "license": "Pexels License"
+    },
+    {
+      "file": "/images/gallery/install-01.jpg",
+      "source": "Pexels",
+      "sourceUrl": "https://www.pexels.com",
+      "license": "Pexels License"
+    },
+    {
+      "file": "/images/gallery/install-02.jpg",
+      "source": "Pexels",
+      "sourceUrl": "https://www.pexels.com",
+      "license": "Pexels License"
+    },
+    {
+      "file": "/images/gallery/install-03.jpg",
+      "source": "Pexels",
+      "sourceUrl": "https://www.pexels.com",
+      "license": "Pexels License"
+    },
+    {
+      "file": "/images/gallery/install-04.jpg",
+      "source": "Pexels",
+      "sourceUrl": "https://www.pexels.com",
+      "license": "Pexels License"
+    },
+    {
+      "file": "/images/gallery/install-05.jpg",
+      "source": "Pexels",
+      "sourceUrl": "https://www.pexels.com",
+      "license": "Pexels License"
+    },
+    {
+      "file": "/images/gallery/install-06.jpg",
+      "source": "Pexels",
+      "sourceUrl": "https://www.pexels.com",
+      "license": "Pexels License"
+    },
+    {
+      "file": "/images/gallery/install-07.jpg",
+      "source": "Pexels",
+      "sourceUrl": "https://www.pexels.com",
+      "license": "Pexels License"
+    },
+    {
+      "file": "/images/gallery/install-08.jpg",
+      "source": "Pexels",
+      "sourceUrl": "https://www.pexels.com",
+      "license": "Pexels License"
+    },
+    {
+      "file": "/images/gallery/install-09.jpg",
+      "source": "Pexels",
+      "sourceUrl": "https://www.pexels.com",
+      "license": "Pexels License"
+    },
+    {
+      "file": "/images/gallery/install-10.jpg",
+      "source": "Pexels",
+      "sourceUrl": "https://www.pexels.com",
+      "license": "Pexels License"
+    },
+    {
+      "file": "/images/services/detail/water-filters-detail.jpg",
+      "source": "Pexels",
+      "sourceUrl": "https://www.pexels.com",
+      "license": "Pexels License"
+    },
+    {
+      "file": "/images/services/detail/water-filtration-detail.jpg",
+      "source": "Pexels",
+      "sourceUrl": "https://www.pexels.com",
+      "license": "Pexels License"
+    },
+    {
+      "file": "/images/services/detail/water-softeners-detail.jpg",
+      "source": "Pexels",
+      "sourceUrl": "https://www.pexels.com",
+      "license": "Pexels License"
+    },
+    {
+      "file": "/images/services/detail/well-water-detail.jpg",
+      "source": "Pexels",
+      "sourceUrl": "https://www.pexels.com",
+      "license": "Pexels License"
+    },
+    {
+      "file": "/video/hero-loop.mp4",
+      "source": "Pexels",
+      "sourceUrl": "https://www.pexels.com",
+      "license": "Pexels License"
+    },
+    {
+      "file": "/logo.svg",
+      "source": "client-supplied",
+      "license": "client-owned"
+    },
+    {
+      "file": "/images/services/detail/water-filters-body.jpg",
+      "source": "Pexels",
+      "sourceUrl": "https://www.pexels.com",
+      "license": "Pexels License"
+    },
+    {
+      "file": "/images/services/detail/water-filtration-body.jpg",
+      "source": "Pexels",
+      "sourceUrl": "https://www.pexels.com",
+      "license": "Pexels License"
+    },
+    {
+      "file": "/images/services/detail/water-softeners-body.jpg",
+      "source": "Pexels",
+      "sourceUrl": "https://www.pexels.com",
+      "license": "Pexels License"
+    },
+    {
+      "file": "/images/services/detail/well-water-body.jpg",
+      "source": "Pexels",
+      "sourceUrl": "https://www.pexels.com",
+      "license": "Pexels License"
+    },
+    {
+      "file": "/images/process/step-1.jpg",
+      "source": "Pexels",
+      "sourceUrl": "https://www.pexels.com",
+      "license": "Pexels License"
+    },
+    {
+      "file": "/images/process/step-2.jpg",
+      "source": "Pexels",
+      "sourceUrl": "https://www.pexels.com",
+      "license": "Pexels License"
+    },
+    {
+      "file": "/images/process/step-3.jpg",
+      "source": "Pexels",
+      "sourceUrl": "https://www.pexels.com",
+      "license": "Pexels License"
+    }
+  ]
+}
