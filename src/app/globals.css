@@ -526,6 +526,11 @@
     background-color: var(--color-surface-alt);
   }
 
+  /* GAP 6: center section h2 tags for visual symmetry with the reference */
+  .section h2 {
+    text-align: center;
+  }
+
   :focus-visible {
     outline: 3px solid var(--color-accent-text);
     outline-offset: 2px;

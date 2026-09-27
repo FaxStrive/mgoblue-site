@@ -239,14 +239,14 @@ export default function Systems({ variant, eyebrow, headline, systems = [], tone
         {/* Columns follow the item count: two products in a three column grid
             left a third of the row empty on USA Water. Four sit two by two. */}
         <div
-          className={`grid grid-cols-1 gap-8 md:grid-cols-2 ${
-            items.length === 3 || items.length > 4 ? "lg:grid-cols-3" : ""
+          className={`grid grid-cols-1 gap-6 md:grid-cols-2 ${
+            items.length === 4 ? "lg:grid-cols-4" : items.length === 3 || items.length > 4 ? "lg:grid-cols-3" : ""
           }`}
         >
           {items.map((system, index) => (
             <Reveal key={system.name} delayMs={stagger(index)} className="lift">
               <article
-                className="card flex flex-col gap-4 p-6"
+                className="card flex flex-col"
                 style={{ backgroundColor: "var(--color-surface)", border: "1px solid var(--color-border)" }}
               >
                 {system.imageSrc ? (
@@ -254,22 +254,24 @@ export default function Systems({ variant, eyebrow, headline, systems = [], tone
                     src={system.imageSrc}
                     alt={system.imageAlt ?? system.name}
                     fill
-                    sizes="(max-width: 768px) 100vw, 33vw"
+                    sizes="(max-width: 768px) 100vw, (max-width: 1023px) 50vw, 25vw"
                     wrapperClassName="card-media relative w-full"
-                    aspect="4/3"
+                    aspect="3/2"
                   />
                 ) : null}
-                <h3>{system.name}</h3>
-                {system.description ? (
-                  <p style={{ color: "var(--color-ink-muted)" }}>
-                    {system.description}
-                  </p>
-                ) : null}
-                {system.ctaLabel && system.ctaHref ? (
-                  <a href={system.ctaHref} className="text-sm font-semibold" style={{ color: "var(--color-accent-text)" }}>
-                    {system.ctaLabel}
-                  </a>
-                ) : null}
+                <div className="flex flex-col gap-3 p-5">
+                  <h3 className="text-base font-semibold">{system.name}</h3>
+                  {system.description ? (
+                    <p className="text-sm" style={{ color: "var(--color-ink-muted)" }}>
+                      {system.description}
+                    </p>
+                  ) : null}
+                  {system.ctaLabel && system.ctaHref ? (
+                    <a href={system.ctaHref} className="mt-auto text-sm font-semibold" style={{ color: "var(--color-accent-text)" }}>
+                      {system.ctaLabel}
+                    </a>
+                  ) : null}
+                </div>
               </article>
             </Reveal>
           ))}

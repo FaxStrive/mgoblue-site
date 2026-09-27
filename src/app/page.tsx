@@ -7,7 +7,6 @@ import {
   Process,
   ProofBand,
   OriginStory,
-  OverlapCard,
   ServiceAreas,
   Faq,
   ClosingCta,
@@ -36,7 +35,8 @@ export default function Home() {
       <VideoHero
         variant="split"
         eyebrow="ASHEVILLE, NC WATER TREATMENT"
-        headline="Clean Water for Asheville Homes."
+        headline="Clean Water for"
+        accentLine="Asheville Homes."
         subhead="Custom filtration for well and municipal water - serving Western North Carolina and 80 miles around."
         videoSrc="/video/hero-loop.mp4"
         posterSrc="/images/hero-poster.jpg"
@@ -60,12 +60,44 @@ export default function Home() {
         }
       />
 
+      {/* GAP 2 + GAP 5: Stat strip immediately below hero with BBB social proof (copy.md Section 4) */}
+      <section style={{ borderBottom: "1px solid var(--color-border)" }}>
+        <div className="shell">
+          <div className="flex flex-col sm:flex-row items-center justify-between gap-4 py-5">
+            {/* Star rating / BBB badge */}
+            <div className="flex items-center gap-3">
+              <div className="flex items-center gap-1" aria-label="5 star BBB accredited">
+                {[1,2,3,4,5].map((n) => (
+                  <svg key={n} width="16" height="16" viewBox="0 0 20 20" fill="var(--color-accent-fill)" aria-hidden="true">
+                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                  </svg>
+                ))}
+              </div>
+              <span className="text-sm font-semibold" style={{ color: "var(--color-ink)" }}>BBB A-Rated</span>
+              <span className="text-sm" style={{ color: "var(--color-ink-muted)" }}>Accredited business serving Asheville</span>
+            </div>
+            <div className="hidden sm:flex items-center gap-8">
+              <div className="text-center">
+                <span className="block text-sm font-semibold" style={{ color: "var(--color-ink)" }}>80-Mile Coverage</span>
+                <span className="block text-xs" style={{ color: "var(--color-ink-muted)" }}>Western North Carolina</span>
+              </div>
+              <div className="text-center">
+                <span className="block text-sm font-semibold" style={{ color: "var(--color-ink)" }}>Free Test Included</span>
+                <span className="block text-xs" style={{ color: "var(--color-ink-muted)" }}>Water quality check before any recommendation</span>
+              </div>
+              <a href={phoneHref} className="btn btn-primary text-sm" data-cta="quote" style={{ borderRadius: 0 }}>
+                Get My Free Test
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* H-02: WhySystems:cards */}
       <WhySystems
         eyebrow="WHY CHOOSE US"
         headline="The Pure Home 365 Difference"
         subhead="We test your water before we recommend anything."
-
         variant="cards"
         reasons={[
           {
@@ -83,48 +115,48 @@ export default function Home() {
         ]}
       />
 
-      {/* H-03: Systems:stacked-cards - data-section="systems-grid" required */}
-        <Systems
-          data-section="systems-grid"
-          variant="stacked-cards"
-          eyebrow="OUR SERVICES"
-          headline="Water Solutions for Every Home"
-          tone="light"
-          systems={[
-            {
-              name: "Water Filters",
-              description: "Whole-home and point-of-use filters remove contaminants, chlorine, and sediment. Clean water at every tap.",
-              imageSrc: "/images/services/water-filters-hero.jpg",
-              imageAlt: "Whole-home water filter installation under kitchen sink",
-              ctaLabel: "Get clean water at every tap",
-              ctaHref: "/services/water-filters",
-            },
-            {
-              name: "Water Filtration",
-              description: "Multi-stage filtration systems address complex contamination including iron, sulfur, and biological concerns.",
-              imageSrc: "/images/services/water-filtration-hero.jpg",
-              imageAlt: "Multi-stage water filtration system installed in utility room",
-              ctaLabel: "Remove iron, sulfur, and more",
-              ctaHref: "/services/water-filtration",
-            },
-            {
-              name: "Water Softeners",
-              description: "Eliminate hardness, scale buildup, and the damage it does to your appliances and plumbing over time.",
-              imageSrc: "/images/services/water-softeners-hero.jpg",
-              imageAlt: "Water softener system installation in residential garage",
-              ctaLabel: "Stop hard water from damaging your home",
-              ctaHref: "/services/water-softeners",
-            },
-            {
-              name: "Well Water",
-              description: "Complete well water treatment from source to tap - testing, treatment, and peace of mind for rural homes.",
-              imageSrc: "/images/services/well-water-hero.jpg",
-              imageAlt: "Residential well water system in Western North Carolina",
-              ctaLabel: "Treat your well from source to tap",
-              ctaHref: "/services/well-water",
-            },
-          ]}
-        />
+      {/* H-03: Systems:grid - four-column card grid (GAP 3 fix) */}
+      <Systems
+        data-section="systems-grid"
+        variant="grid"
+        eyebrow="OUR SERVICES"
+        headline="Water Solutions for Every Home"
+        tone="alt"
+        systems={[
+          {
+            name: "Water Filters",
+            description: "Remove contaminants, chlorine, and sediment. Clean water at every tap.",
+            imageSrc: "/images/services/water-filters-hero.jpg",
+            imageAlt: "Whole-home water filter installation under kitchen sink",
+            ctaLabel: "Get clean water at every tap",
+            ctaHref: "/services/water-filters",
+          },
+          {
+            name: "Water Filtration",
+            description: "Multi-stage filtration for iron, sulfur, and complex contamination.",
+            imageSrc: "/images/services/water-filtration-hero.jpg",
+            imageAlt: "Multi-stage water filtration system installed in utility room",
+            ctaLabel: "Remove iron, sulfur, and more",
+            ctaHref: "/services/water-filtration",
+          },
+          {
+            name: "Water Softeners",
+            description: "Eliminate hardness, scale buildup, and appliance damage over time.",
+            imageSrc: "/images/services/water-softeners-hero.jpg",
+            imageAlt: "Water softener system installation in residential garage",
+            ctaLabel: "Stop hard water damage",
+            ctaHref: "/services/water-softeners",
+          },
+          {
+            name: "Well Water",
+            description: "Complete treatment for private wells - testing, treatment, peace of mind.",
+            imageSrc: "/images/services/well-water-hero.jpg",
+            imageAlt: "Residential well water system in Western North Carolina",
+            ctaLabel: "Treat your well from source to tap",
+            ctaHref: "/services/well-water",
+          },
+        ]}
+      />
 
       {/* CTA Re-ask Band */}
       <section className="section on-alt" style={{ paddingTop: "clamp(1.5rem,3vw,2.5rem)", paddingBottom: "clamp(1.5rem,3vw,2.5rem)" }}>
@@ -137,35 +169,39 @@ export default function Home() {
         </div>
       </section>
 
-      {/* H-04: WaterHook:concern-grid with ConcernRouter */}
-      <section className="section on-dark" data-section="water-hook">
+      {/* H-04: WaterHook - GAP 1 fix: changed from on-dark to light pale blue */}
+      <section className="section" data-section="water-hook" style={{ backgroundColor: "#EBF4FF" }}>
         <div className="shell">
-          <p className="eyebrow" style={{ color: "rgba(255,255,255,0.65)" }}>WHAT IS YOUR WATER DOING?</p>
-          <h2 className="mt-4 mb-4" style={{ color: "white" }}>Asheville Area Water Problems We Solve</h2>
-          <p className="mb-12" style={{ color: "rgba(255,255,255,0.78)", maxWidth: "56ch" }}>
+          <p className="eyebrow mb-4 block">WHAT IS YOUR WATER DOING?</p>
+          <h2 className="mt-4 mb-4">Asheville Area Water Problems We Solve</h2>
+          <p className="mb-12" style={{ color: "var(--color-ink-muted)", maxWidth: "56ch", margin: "0 auto 3rem" }}>
             Western NC water has its own challenges. Tell us what you are seeing and we will point you to the right solution.
           </p>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 mb-12">
             {[
-              { title: "Buildup on Faucets", body: "White mineral scale on faucets and showerheads. Hard water is leaving calcium and magnesium deposits behind." },
-              { title: "Staining in Sinks", body: "Orange or brown stains in toilets and sinks. Iron in the water is the most common culprit in WNC well water." },
-              { title: "Bad Taste or Odor", body: "Water that tastes like chlorine or smells like sulfur. Both are treatable with the right filtration system." },
-              { title: "Contaminant Concerns", body: "VOCs, PFAS, sediment, or biological contamination. A lab test identifies exactly what is present." },
-              { title: "Appliance Damage", body: "Hard water shortens the life of water heaters, dishwashers, and washing machines. Softening protects the investment." },
-              { title: "Bottled Water Cost", body: "Families spending money every month on bottled water. Whole-home filtration eliminates that recurring cost." },
+              { title: "Scale on Faucets and Fixtures", body: "White buildup that returns no matter how often you clean." },
+              { title: "A Chlorine Smell from the Tap", body: "City water that smells like a pool when it runs." },
+              { title: "Yellowish or Rust Stains in the Sink", body: "Iron staining that discolors porcelain and grout permanently." },
+              { title: "Water That Tastes Off", body: "Flat, metallic, or chemical flavor even when chilled." },
+              { title: "Soap That Won't Lather", body: "Hard water leaves film on skin and dull residue on dishes." },
+              { title: "Bottles and Filters That Keep Running Out", body: "Constant restocking costs more than a permanent solution would." },
             ].map((concern) => (
-              <div key={concern.title} className="p-6" style={{ border: "1px solid rgba(255,255,255,0.14)", background: "rgba(255,255,255,0.06)" }}>
-                <h3 className="text-base font-semibold mb-2" style={{ color: "white" }}>{concern.title}</h3>
-                <p className="text-sm leading-relaxed" style={{ color: "rgba(255,255,255,0.72)" }}>{concern.body}</p>
+              <div key={concern.title} className="p-6" style={{ border: "1px solid var(--color-border)", background: "var(--color-surface)" }}>
+                <h3 className="text-base font-semibold mb-2">{concern.title}</h3>
+                <p className="text-sm leading-relaxed" style={{ color: "var(--color-ink-muted)" }}>{concern.body}</p>
               </div>
             ))}
           </div>
-          <div className="max-w-2xl mx-auto">
+
+          {/* GAP 2: ConcernRouter as a prominent standalone card */}
+          <div className="max-w-2xl mx-auto bg-white p-8" style={{ border: "2px solid var(--color-accent-fill)" }}>
+            <h3 className="text-lg font-semibold mb-2 text-center">Which System Is Right for You?</h3>
+            <p className="text-sm text-center mb-6" style={{ color: "var(--color-ink-muted)" }}>Tell us your biggest concern and we will point you in the right direction.</p>
             <ConcernRouter facts={toolFacts} />
           </div>
-          <p className="mt-6 text-center text-sm" style={{ color: "rgba(255,255,255,0.6)" }}>
+          <p className="mt-6 text-center text-sm" style={{ color: "var(--color-ink-muted)" }}>
             Prefer to talk? Call{" "}
-            <a href={phoneHref} style={{ color: "white", fontWeight: 600 }}>{phone}</a>
+            <a href={phoneHref} style={{ color: "var(--color-accent-text)", fontWeight: 600 }}>{phone}</a>
           </p>
         </div>
       </section>
@@ -192,38 +228,30 @@ export default function Home() {
         ]}
       />
 
-      {/* CTA Re-ask Band */}
-      <section className="section" style={{ paddingTop: "clamp(1.5rem,3vw,2.5rem)", paddingBottom: "clamp(1.5rem,3vw,2.5rem)" }}>
+      {/* Mid-page CTA band - the ONE dark band (GAP 1 rule: hero + one CTA band + footer) */}
+      <section className="section on-dark">
         <div className="shell flex flex-col sm:flex-row items-center justify-between gap-4">
-          <p className="text-base">Questions about your water? We test for free, no strings.</p>
+          <div>
+            <p className="text-lg font-semibold" style={{ color: "white" }}>Questions about your water? We test for free, no strings.</p>
+            <p className="text-sm mt-1" style={{ color: "rgba(255,255,255,0.72)" }}>BBB A-rated. Local technicians. No pressure to purchase.</p>
+          </div>
           <div className="flex flex-wrap items-center gap-4">
-            <a href={phoneHref} className="font-semibold" style={{ color: "var(--color-brand)" }}>Call {phone}</a>
+            <a href={phoneHref} style={{ color: "rgba(255,255,255,0.85)", fontWeight: 600 }}>Call {phone}</a>
             <a href="/contact" className="btn btn-primary" data-cta="quote" style={{ borderRadius: 0 }}>Schedule Online</a>
           </div>
         </div>
       </section>
 
-      {/* H-06: ProofBand */}
+      {/* H-06: ProofBand - promise strip with copy.md Section 4 data */}
       <ProofBand
         variant="promise"
         items={[
-          { value: "BBB A Rating", label: "Accredited business. Zero outstanding complaints." },
-          { value: "Asheville Local", label: "Our team lives and works in Western NC." },
+          { value: "BBB A Rating", label: "Accredited business serving Asheville" },
+          { value: "80-Mile Coverage", label: "Western North Carolina service territory" },
+          { value: "Free Test Included", label: "Water quality check before any recommendation" },
           { value: "Well + Municipal", label: "We treat both water sources. Not all companies do." },
-          { value: "Free Water Test", label: "No charge to test your water and show you the results." },
         ]}
       />
-
-      {/* CTA after ProofBand */}
-      <section className="section on-dark" style={{ paddingTop: "2rem", paddingBottom: "2.5rem" }}>
-        <div className="shell flex flex-col sm:flex-row items-center justify-between gap-4">
-          <div />
-          <div className="flex flex-wrap items-center gap-4">
-            <a href={phoneHref} style={{ color: "rgba(255,255,255,0.8)" }}>{phone}</a>
-            <a href="/contact" className="btn btn-primary" data-cta="quote" style={{ borderRadius: 0 }}>Schedule Your Free Test</a>
-          </div>
-        </div>
-      </section>
 
       {/* H-07: OriginStory:community-anchor */}
       <OriginStory
@@ -237,18 +265,18 @@ export default function Home() {
         tone="light"
       />
 
-      {/* H-08: Stat band - inline since StatOverImage is single-stat */}
+      {/* H-08: Stat band - facts from copy.md Section 10 */}
       <section className="section on-alt">
         <div className="shell">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
             {[
-              { value: "80", label: "Mile Service Radius" },
+              { value: "A", label: "BBB Accredited Rating" },
+              { value: "80 mi", label: "Service Radius from Asheville" },
               { value: "4", label: "System Types Available" },
-              { value: "3", label: "Financing Options" },
-              { value: "Zero", label: "Down with Credit Approval" },
+              { value: "Free", label: "Water Quality Test Included" },
             ].map((stat) => (
               <div key={stat.label}>
-                <p className="text-5xl md:text-6xl font-bold tracking-tight mb-2" style={{ color: "var(--color-brand)", fontFamily: "var(--font-display)" }}>{stat.value}</p>
+                <p className="text-5xl md:text-6xl font-bold tracking-tight mb-2" style={{ color: "var(--color-accent-fill)", fontFamily: "var(--font-display)" }}>{stat.value}</p>
                 <p className="text-sm font-medium" style={{ color: "var(--color-ink-muted)" }}>{stat.label}</p>
               </div>
             ))}
@@ -256,10 +284,10 @@ export default function Home() {
         </div>
       </section>
 
-      {/* H-09: Featured install - FullBleedBand as featured install */}
+      {/* H-09: FullBleedBand - GAP 4: use install-featured-2 for brighter image */}
       <FullBleedBand
         tone="light"
-        imageSrc="/images/featured/install-featured-1.jpg"
+        imageSrc="/images/featured/install-featured-2.jpg"
         imageAlt="Professional whole-home water system installation, Asheville NC"
         eyebrow="INSTALLATION QUALITY"
         headline="Professional Installations, Every Time"
@@ -268,11 +296,10 @@ export default function Home() {
         ctaHref="/gallery"
       />
 
-      {/* H-10: FAQ - required before ServiceAreas per proof-led-local-trade archetype */}
+      {/* H-10: FAQ */}
       <Faq
         eyebrow="COMMON QUESTIONS"
         headline="What Asheville Homeowners Ask Us"
-
         items={[
           { question: "Do you work with well water?", answer: "Yes. Well water is a specialty. We test for iron, sulfur, bacteria, hardness, and other common well contaminants before recommending anything." },
           { question: "How long does installation take?", answer: "Most whole-home systems are installed in a single day. Simpler point-of-use systems are done in a few hours." },
@@ -318,7 +345,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* H-13: ClosingCta - ONE money amount allowed */}
+      {/* H-13: ClosingCta */}
       <ClosingCta
         headline="Clean Water Starts with a Free Test"
         subhead="Our team tests your water at no charge and shows you exactly what you are dealing with. Financing available from $96/month."

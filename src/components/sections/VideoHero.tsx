@@ -30,6 +30,8 @@ export interface VideoHeroProps {
   variant: VideoHeroVariant;
   eyebrow?: string;
   headline?: string;
+  /** Optional second line of the h1 rendered in the brand accent color for two-tone treatment. */
+  accentLine?: string;
   subhead?: string;
   videoSrc?: string;
   posterSrc?: string;
@@ -68,6 +70,7 @@ export default function VideoHero({
   variant,
   eyebrow,
   headline,
+  accentLine,
   subhead,
   videoSrc,
   posterSrc,
@@ -186,7 +189,15 @@ export default function VideoHero({
           <div className="shell grid grid-cols-1 items-center gap-12 lg:grid-cols-2">
             <Reveal className="flex flex-col gap-8">
               {eyebrow ? <span className="eyebrow">{eyebrow}</span> : null}
-              <h1>{headline}</h1>
+              <h1>
+                {headline}
+                {accentLine ? (
+                  <>
+                    <br />
+                    <span style={{ color: "var(--color-accent-fill)" }}>{accentLine}</span>
+                  </>
+                ) : null}
+              </h1>
               {subhead ? <p className="lede">{subhead}</p> : null}
               {(primaryCtaLabel && primaryCtaHref) || (secondaryCtaLabel && secondaryCtaHref) ? (
                 <div className="flex flex-wrap items-center gap-4">
