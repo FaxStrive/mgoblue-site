@@ -75,7 +75,7 @@ export default function Home() {
       </div>
 
       {/* Hero form band - lead capture below full-bleed hero */}
-      <section style={{ backgroundColor: "var(--color-surface-alt)", borderBottom: "1px solid var(--color-border)" }}>
+      <div style={{ backgroundColor: "var(--color-surface-alt)", borderBottom: "1px solid var(--color-border)" }}>
         <div className="shell">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 py-12 items-center">
             <div>
@@ -88,7 +88,7 @@ export default function Home() {
                 {[
                   "Better Business Bureau A-rated Asheville company",
                   "Same-day results, explained in plain language",
-                  "$0 down financing available from $96/month",
+                  "Financing available with no money down required",
                 ].map((item) => (
                   <li key={item} className="flex items-center gap-3 text-sm" style={{ color: "var(--color-ink)" }}>
                     <span style={{ color: "var(--color-accent-fill)", fontWeight: 700 }}>&#10003;</span>
@@ -110,10 +110,10 @@ export default function Home() {
             </div>
           </div>
         </div>
-      </section>
+      </div>
 
       {/* H-02: WhySystems - asymmetric editorial split (headline left, reasons right) */}
-      <section className="section">
+      <section className="section" data-section="why-systems">
         <div className="shell">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
             {/* Left: editorial headline column */}
@@ -469,7 +469,7 @@ export default function Home() {
                 >
                   4.9
                 </p>
-                <div className="flex items-center gap-0.5" aria-label="4.9 out of 5 stars">
+                <div className="flex items-center gap-0.5" aria-label="4.9 out of 5 rating">
                   {[1, 2, 3, 4, 5].map((n) => (
                     <svg
                       key={n}
@@ -513,7 +513,7 @@ export default function Home() {
                     <p className="text-sm" style={{ color: "var(--color-ink-muted)" }}>
                       Weaverville, NC
                     </p>
-                    <div className="flex items-center gap-0.5 mt-1" aria-label="5 out of 5 stars">
+                    <div className="flex items-center gap-0.5 mt-1" aria-label="5 out of 5 rating">
                       {[1, 2, 3, 4, 5].map((n) => (
                         <svg
                           key={n}
@@ -600,7 +600,7 @@ export default function Home() {
               >
                 <div
                   className="flex items-center gap-1"
-                  aria-label={`${testimonial.rating} out of 5 stars`}
+                  aria-label={`${testimonial.rating} out of 5`}
                 >
                   {Array.from({ length: testimonial.rating }).map((_, i) => (
                     <svg
@@ -642,8 +642,8 @@ export default function Home() {
             <div className="lg:col-span-5">
               <span className="eyebrow mb-4 block">HOW MUCH COULD YOU SAVE?</span>
               <h2>
-                Up to $2,750 a year in{" "}
-                <em>water costs.</em>
+                Real savings on water{" "}
+                <em>every year.</em>
               </h2>
               <p className="mt-4" style={{ color: "var(--color-ink-muted)" }}>
                 Between bottled water, filter replacements, appliance repairs from hard water, and energy loss from scale buildup, most Asheville households spend more on water than they realize.
@@ -664,10 +664,10 @@ export default function Home() {
             </div>
             <div className="lg:col-span-7 grid grid-cols-2 gap-4">
               {[
-                { label: "Bottled water per year", value: "~$900" },
-                { label: "Filter replacements", value: "~$600" },
-                { label: "Appliance damage (hard water)", value: "~$800" },
-                { label: "Energy loss from scale", value: "~$450" },
+                { label: "Bottled water per year", value: "High" },
+                { label: "Filter replacements", value: "Recurring" },
+                { label: "Appliance damage (hard water)", value: "Major" },
+                { label: "Energy loss from scale", value: "Ongoing" },
               ].map((row) => (
                 <div
                   key={row.label}
