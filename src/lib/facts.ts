@@ -33,11 +33,11 @@ export type ClientFacts = {
   city: string;
   state: string;
   serviceRadius: string;
-  certifications: string[];
-  serviceAreas: ServiceArea[];
+  certifications: Array<string>;
+  serviceAreas: Array<ServiceArea>;
   services: Array<Service>;
-  offers: Offer[];
-  hours: Hours[];
+  offers: Array<Offer>;
+  hours: Array<Hours>;
   logoPath: string;
 };
 
@@ -50,6 +50,28 @@ export const facts: ClientFacts = {
   city: "Asheville",
   state: "NC",
   serviceRadius: "80 miles",
+  services: [
+    {
+      name: "Water Filters",
+      slug: "water-filters",
+      description: "Whole-home and point-of-use filters remove contaminants, chlorine, and sediment. Clean water at every tap.",
+    },
+    {
+      name: "Water Filtration",
+      slug: "water-filtration",
+      description: "Multi-stage filtration systems address complex contamination including iron, sulfur, and biological concerns.",
+    },
+    {
+      name: "Water Softeners",
+      slug: "water-softeners",
+      description: "Eliminate hardness, scale buildup, and the damage it does to your appliances and plumbing over time.",
+    },
+    {
+      name: "Well Water",
+      slug: "well-water",
+      description: "Complete well water treatment from source to tap - testing, treatment, and peace of mind for rural homes.",
+    },
+  ],
   certifications: ["BBB A Rating"],
   logoPath: "/logo.svg",
   serviceAreas: [
@@ -78,28 +100,6 @@ export const facts: ClientFacts = {
     { city: "Hickory", state: "NC" },
     { city: "Rutherfordton", state: "NC" },
     { city: "Forest City", state: "NC" },
-  ],
-  services: [
-    {
-      name: "Water Filters",
-      slug: "water-filters",
-      description: "Whole-home and point-of-use filters remove contaminants, chlorine, and sediment. Clean water at every tap.",
-    },
-    {
-      name: "Water Filtration",
-      slug: "water-filtration",
-      description: "Multi-stage filtration systems address complex contamination including iron, sulfur, and biological concerns.",
-    },
-    {
-      name: "Water Softeners",
-      slug: "water-softeners",
-      description: "Eliminate hardness, scale buildup, and the damage it does to your appliances and plumbing over time.",
-    },
-    {
-      name: "Well Water",
-      slug: "well-water",
-      description: "Complete well water treatment from source to tap - testing, treatment, and peace of mind for rural homes.",
-    },
   ],
   offers: [
     {

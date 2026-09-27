@@ -228,7 +228,7 @@ export default function Systems({ variant, eyebrow, headline, systems = [], tone
 
   // "grid" (default)
   return (
-    <section className={sectionClass}>
+    <section className={sectionClass} {...sectionAttrs}>
       <div className="shell">
         {(eyebrow || headline) && (
           <div className="mb-16">
@@ -246,6 +246,7 @@ export default function Systems({ variant, eyebrow, headline, systems = [], tone
           {items.map((system, index) => (
             <Reveal key={system.name} delayMs={stagger(index)} className="lift">
               <article
+                data-system-card=""
                 className="card flex flex-col"
                 style={{ backgroundColor: "var(--color-surface)", border: "1px solid var(--color-border)" }}
               >
@@ -262,7 +263,7 @@ export default function Systems({ variant, eyebrow, headline, systems = [], tone
                 <div className="flex flex-col gap-3 p-5" style={{ color: "var(--color-ink)" }}>
                   <h3 className="text-base font-semibold" style={{ color: "var(--color-ink)" }}>{system.name}</h3>
                   {system.description ? (
-                    <p className="text-sm" style={{ color: "var(--color-ink-muted)" }}>
+                    <p style={{ color: "var(--color-ink-muted)" }}>
                       {system.description}
                     </p>
                   ) : null}
