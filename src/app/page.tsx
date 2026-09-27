@@ -36,9 +36,8 @@ export default function Home() {
         eyebrow="ASHEVILLE, NC WATER TREATMENT"
         headline="Pure Water, Nothing Less."
         subhead="Custom filtration for well and municipal water. BBB A-rated. Serving Western North Carolina and 80 miles around."
-        videoSrc="/video/hero-loop.mp4"
-        posterSrc="/images/hero-poster.jpg"
-        posterAlt="Clean mountain water flowing, Asheville NC"
+        posterSrc="/images/hero/family-dinner.jpg"
+        posterAlt="Family enjoying clean water at the dinner table in their Asheville area home"
         primaryCtaLabel="Get Your Free Water Test"
         primaryCtaHref="/contact"
         secondaryCtaLabel="See Our Systems"
@@ -110,32 +109,32 @@ export default function Home() {
           {
             name: "Water Filters",
             description: "Remove contaminants, chlorine, and sediment. Clean water at every tap.",
-            imageSrc: "/images/gallery/install-02.jpg",
-            imageAlt: "Water filter installation in an Asheville area home",
+            imageSrc: "/images/people/glass-faucet.jpg",
+            imageAlt: "Asheville homeowner filling a glass at a clean kitchen faucet",
             ctaLabel: "Get clean water at every tap",
             ctaHref: "/services/water-filters",
           },
           {
             name: "Water Filtration",
             description: "Multi-stage filtration for iron, sulfur, and complex contamination.",
-            imageSrc: "/images/gallery/install-05.jpg",
-            imageAlt: "Multi-stage water filtration system installed in a Western NC home",
+            imageSrc: "/images/people/dad-son.jpg",
+            imageAlt: "Father and son washing hands at a clean sink in their home",
             ctaLabel: "Remove iron, sulfur, and more",
             ctaHref: "/services/water-filtration",
           },
           {
             name: "Water Softeners",
             description: "Eliminate hardness, scale buildup, and appliance damage over time.",
-            imageSrc: "/images/gallery/install-07.jpg",
-            imageAlt: "Water softener installation in a residential home near Asheville",
+            imageSrc: "/images/people/mom-son.jpg",
+            imageAlt: "Mother and son enjoying clean water in their home",
             ctaLabel: "Stop hard water damage",
             ctaHref: "/services/water-softeners",
           },
           {
             name: "Well Water",
             description: "Complete treatment for private wells - testing, treatment, peace of mind.",
-            imageSrc: "/images/gallery/install-10.jpg",
-            imageAlt: "Well water treatment system installed in Western North Carolina",
+            imageSrc: "/images/hero/family-dinner.jpg",
+            imageAlt: "Family at the dinner table with a pitcher of clean well water",
             ctaLabel: "Treat your well from source to tap",
             ctaHref: "/services/well-water",
           },
@@ -186,8 +185,8 @@ export default function Home() {
         </div>
       </section>
 
-      {/* H-04: WaterHook - GAP 1 fix: changed from on-dark to light pale blue */}
-      <section className="section" data-section="water-hook" style={{ backgroundColor: "#EBF4FF" }}>
+      {/* H-04: WaterHook - teal section tint */}
+      <section className="section" data-section="water-hook" style={{ backgroundColor: "var(--color-surface-teal, #ecfeff)" }}>
         <div className="shell">
           <p className="eyebrow mb-4 block">WHAT IS YOUR WATER DOING?</p>
           <h2 className="mt-4 mb-4">Asheville Area Water Problems We Solve</h2>

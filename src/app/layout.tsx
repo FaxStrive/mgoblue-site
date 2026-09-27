@@ -46,7 +46,7 @@ export default function RootLayout({
         {/* Announcement bar: free water test offer with urgency */}
         <div
           style={{
-            backgroundColor: "var(--color-accent-fill)",
+            backgroundColor: "var(--color-surface-deep)",
             color: "#ffffff",
             textAlign: "center",
             padding: "10px 20px",

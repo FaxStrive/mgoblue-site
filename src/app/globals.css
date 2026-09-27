@@ -58,6 +58,7 @@
   --color-surface: #ffffff;
   --color-surface-alt: #fafaf8;
   --color-surface-deep: #101113;
+  --color-surface-teal: #ecfeff;
   --color-border: #e2e2df;
 
   /* accent-fill carries white text, accent-text sits on light surfaces.

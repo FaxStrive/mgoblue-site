@@ -1,29 +1,29 @@
 /* brand.css for MGoBlue LLC dba Pure Home 365
-   Brand accent: #0891b2 (teal/cyan-600) - introduced in critique round 4
-   #0891b2 on #FFFFFF: 4.56:1 (WCAG AA pass)
-   white on #0891b2: 4.56:1 (WCAG AA pass)
-   Derived for text: #0e7490 (slightly darker, #FFFFFF 5.9:1)
-   Dark surface text: #67e8f9 on #0a3440 = 7.4:1
+   Brand accent: #0e7490 (cyan-700) — darkened from original for WCAG AA compliance
+   #0e7490 on #FFFFFF: approx 4.8:1 (WCAG AA pass)
+   white on #0e7490: approx 4.8:1 (WCAG AA pass)
+   Derived for text: #0c6175 (slightly darker, ≥4.5:1 on off-white)
+   Dark surface text: #67e8f9 on #0a3440 ≈ 9:1 (WCAG AAA)
 */
 
 :root {
   --color-ink: #0f1a1e;
   --color-ink-muted: #4a5e66;
   --color-surface: #FFFFFF;
-  --color-surface-alt: #f0f9fb;
+  --color-surface-alt: #FAFAF8;
   --color-surface-deep: #0a3440;
 
-  --color-accent: #0891b2;
-  --color-accent-fill: #0891b2;
+  --color-accent: #0e7490;
+  --color-accent-fill: #0e7490;
   --color-accent-fill-ink: #FFFFFF;
-  --color-accent-text: #0e7490;
-  /* On dark teal surfaces, use a light cyan for AA contrast.
-     #67e8f9 on #0a3440 is 7.4:1 (WCAG AAA pass). */
+  --color-accent-text: #0c6175;
+  /* On dark teal surfaces, light cyan ensures high contrast. */
   --color-accent-text-on-dark: #67e8f9;
-  --wave-color: #0891b2;
+  --wave-color: #0e7490;
 
-  /* Teal/aqua extras for gradient bands and section tints */
-  --color-teal: #0891b2;
+  /* Teal/aqua tints for section backgrounds and decorative use only.
+     Do NOT use --color-teal or --color-aqua as text color on white. */
+  --color-teal: #0e7490;
   --color-aqua: #06b6d4;
   --color-surface-teal: #ecfeff;
 
