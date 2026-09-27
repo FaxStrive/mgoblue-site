@@ -39,7 +39,7 @@ export default function ProofBand({ variant, items = [] }: ProofBandProps) {
 
   if (variant === "promise") {
     return (
-      <section className="section on-dark" style={{ paddingTop: "40px", paddingBottom: "40px" }}>
+      <section className="section on-dark">
         <div className="shell">
           <ul className="grid grid-cols-1 divide-y sm:grid-cols-3 sm:divide-x sm:divide-y-0" style={{ borderColor: "rgba(255,255,255,0.16)" }}>
             {items.map((item, index) => (
@@ -58,7 +58,7 @@ export default function ProofBand({ variant, items = [] }: ProofBandProps) {
   }
 
   return (
-    <section className="section on-alt" style={{ paddingTop: "40px", paddingBottom: "40px" }}>
+    <section className="section on-alt">
       <div className="shell">
         <ul className="grid grid-cols-2 gap-8 lg:grid-cols-4">
           {items.map((item, index) => (

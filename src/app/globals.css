@@ -195,9 +195,9 @@
 
   h1 {
     font-size: var(--h1);
-    font-weight: 400;
+    font-weight: var(--h1-weight);
     line-height: var(--h1-leading);
-    letter-spacing: -0.035em;
+    letter-spacing: var(--h1-tracking);
   }
 
   h2 {
@@ -231,14 +231,9 @@
   }
 }
 
-/* h1 tracking is tighter on desktop, slightly looser on mobile for readability. */
-@media (max-width: 768px) {
-  h1 {
-    letter-spacing: -0.020em;
-  }
-}
-
-/* h2 desktop tracking */
+/* h1 tracking is --h1-tracking, a single non-responsive value from the
+   style's desktop band, by the token contract. h2 has no such token yet, so
+   it keeps a small desktop-only tightening here. */
 @media (min-width: 1024px) {
   h2 {
     letter-spacing: -0.03em;
@@ -261,7 +256,7 @@
      for a reason that has nothing to do with the page. */
   .shell {
     width: calc(100% - (var(--gutter) * 2));
-    max-width: var(--shell, 1200px);
+    max-width: var(--shell);
     margin-inline: auto;
   }
 
