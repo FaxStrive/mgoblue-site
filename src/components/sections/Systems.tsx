@@ -259,8 +259,8 @@ export default function Systems({ variant, eyebrow, headline, systems = [], tone
                     aspect="3/2"
                   />
                 ) : null}
-                <div className="flex flex-col gap-3 p-5">
-                  <h3 className="text-base font-semibold">{system.name}</h3>
+                <div className="flex flex-col gap-3 p-5" style={{ color: "var(--color-ink)" }}>
+                  <h3 className="text-base font-semibold" style={{ color: "var(--color-ink)" }}>{system.name}</h3>
                   {system.description ? (
                     <p className="text-sm" style={{ color: "var(--color-ink-muted)" }}>
                       {system.description}

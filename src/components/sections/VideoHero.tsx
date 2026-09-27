@@ -154,7 +154,7 @@ export default function VideoHero({
             <div className="shell relative z-10 w-full pb-16 pt-40">
               <Reveal className="flex max-w-3xl flex-col gap-6">
                 {eyebrow ? <span className="eyebrow">{eyebrow}</span> : null}
-                <h1 style={{ fontSize: "clamp(40px, 6vw, 88px)", lineHeight: 1.02 }}>{headline}</h1>
+                <h1>{headline}</h1>
                 {subhead ? <p className="lede max-w-xl">{subhead}</p> : null}
                 {(primaryCtaLabel && primaryCtaHref) || (secondaryCtaLabel && secondaryCtaHref) ? (
                   <div className="flex flex-wrap items-center gap-4">
@@ -185,7 +185,7 @@ export default function VideoHero({
   if (variant === "split") {
     return (
       <>
-        <section className="section on-dark">
+        <section className="section on-dark overflow-hidden">
           <div className="shell grid grid-cols-1 items-center gap-12 lg:grid-cols-2">
             <Reveal className="flex flex-col gap-8">
               {eyebrow ? <span className="eyebrow">{eyebrow}</span> : null}

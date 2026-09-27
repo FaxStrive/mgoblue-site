@@ -186,16 +186,16 @@ export default function Home() {
               { title: "Soap That Won't Lather", body: "Hard water leaves film on skin and dull residue on dishes." },
               { title: "Bottles and Filters That Keep Running Out", body: "Constant restocking costs more than a permanent solution would." },
             ].map((concern) => (
-              <div key={concern.title} className="p-6" style={{ border: "1px solid var(--color-border)", background: "var(--color-surface)" }}>
-                <h3 className="text-base font-semibold mb-2">{concern.title}</h3>
+              <div key={concern.title} className="p-6" style={{ border: "1px solid var(--color-border)", background: "var(--color-surface)", color: "var(--color-ink)" }}>
+                <h3 className="text-base font-semibold mb-2" style={{ color: "var(--color-ink)" }}>{concern.title}</h3>
                 <p className="text-sm leading-relaxed" style={{ color: "var(--color-ink-muted)" }}>{concern.body}</p>
               </div>
             ))}
           </div>
 
           {/* GAP 2: ConcernRouter as a prominent standalone card */}
-          <div className="max-w-2xl mx-auto bg-white p-8" style={{ border: "2px solid var(--color-accent-fill)" }}>
-            <h3 className="text-lg font-semibold mb-2 text-center">Which System Is Right for You?</h3>
+          <div className="max-w-2xl mx-auto bg-white p-8" style={{ border: "2px solid var(--color-accent-fill)", color: "var(--color-ink)" }}>
+            <h3 className="text-lg font-semibold mb-2 text-center" style={{ color: "var(--color-ink)" }}>Which System Is Right for You?</h3>
             <p className="text-sm text-center mb-6" style={{ color: "var(--color-ink-muted)" }}>Tell us your biggest concern and we will point you in the right direction.</p>
             <ConcernRouter facts={toolFacts} />
           </div>
