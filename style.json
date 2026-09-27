@@ -1,0 +1,168 @@
+{
+  "$schema": "../style.schema.json",
+  "style": "corporate-professional",
+  "guide": "style-guide.md",
+  "label": "Corporate professional",
+  "summary": "Condensed headings, strong borders, sober rhythm, no flourish.",
+  "radius": {
+    "button": "2px",
+    "card": "4px",
+    "media": "0px",
+    "input": "2px",
+    "pill": "2px"
+  },
+  "typography": {
+    "displayFace": {
+      "family": "Barlow Condensed",
+      "nextFont": "Barlow_Condensed",
+      "weights": [
+        "500",
+        "600",
+        "700"
+      ]
+    },
+    "bodyFace": {
+      "family": "Source Sans 3",
+      "nextFont": "Source_Sans_3",
+      "weights": [
+        "400",
+        "500",
+        "600"
+      ]
+    },
+    "scale": {
+      "desktop": {
+        "h1_size": {
+          "target": 64,
+          "min": 56,
+          "max": 78
+        },
+        "h1_weight": {
+          "target": 600,
+          "min": 550,
+          "max": 700
+        },
+        "h1_tracking": {
+          "target": -0.02,
+          "min": -0.04,
+          "max": -0.005
+        },
+        "h1_leading": {
+          "target": 1.05,
+          "min": 0.95,
+          "max": 1.15
+        },
+        "h2_size": {
+          "target": 44,
+          "min": 38,
+          "max": 56
+        },
+        "section_padding": {
+          "target": 120,
+          "min": 96,
+          "max": 168
+        },
+        "container_width": {
+          "target": 1200,
+          "min": 1100,
+          "max": 1400
+        }
+      },
+      "mobile": {
+        "h1_size": {
+          "target": 40,
+          "min": 36,
+          "max": 46
+        },
+        "h1_weight": {
+          "target": 600,
+          "min": 550,
+          "max": 700
+        },
+        "h1_tracking": {
+          "target": -0.015,
+          "min": -0.035,
+          "max": 0
+        },
+        "h1_leading": {
+          "target": 1.1,
+          "min": 1,
+          "max": 1.2
+        },
+        "h2_size": {
+          "target": 32,
+          "min": 28,
+          "max": 40
+        },
+        "section_padding": {
+          "target": 72,
+          "min": 56,
+          "max": 96
+        }
+      }
+    },
+    "bodyLeading": 1.55
+  },
+  "divider": "straight",
+  "rhythm": [
+    "light",
+    "tint",
+    "light",
+    "deep",
+    "tint",
+    "light"
+  ],
+  "motion": {
+    "intensity": "restrained",
+    "fast": "120ms",
+    "base": "180ms",
+    "slow": "300ms",
+    "revealTravel": "14px",
+    "lift": "3px",
+    "sweep": "flow-sweep"
+  },
+  "image": {
+    "treatment": "rounded-card",
+    "hero": "still-split",
+    "figureRadius": "4px",
+    "frame": "border"
+  },
+  "accent": {
+    "usage": "reserved"
+  },
+  "renders": {
+    "dividersMin": 3,
+    "flowDiagram": {
+      "required": false,
+      "whenStagesAtLeast": 3
+    },
+    "toolsOffHome": [
+      {
+        "key": "savings-calculator",
+        "selector": "[data-tool=\"savings-calculator\"]",
+        "headingPattern": "run your own numbers|savings calculator|calculate your savings|see your savings|work out (your|the) numbers"
+      },
+      {
+        "key": "pricing-comparison",
+        "selector": "[data-tool=\"pricing-comparison\"]",
+        "headingPattern": "compare the ways to pay|ways to pay|compare (plans|pricing|payment)|pricing (table|comparison)|payment options"
+      }
+    ],
+    "toolRoutes": [
+      "/offer",
+      "/contact"
+    ],
+    "band": {
+      "sections": {
+        "min": 14,
+        "max": 26
+      },
+      "heightPx": {
+        "min": 10000,
+        "max": 18000
+      },
+      "viewport": 1440,
+      "derivedFrom": "house default, no reference page measured for this style yet"
+    }
+  }
+}

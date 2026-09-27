@@ -88,7 +88,7 @@ export default function Footer({
         </div>
 
         {legalLine ? (
-          <div className="pt-8 text-xs" style={{ borderTop: "1px solid rgba(255,255,255,0.16)", color: "rgba(255,255,255,0.5)" }}>
+          <div className="pt-8 text-xs" style={{ borderTop: "1px solid rgba(255,255,255,0.16)", color: "rgba(255,255,255,0.62)" }}>
             {legalLine}
           </div>
         ) : null}
