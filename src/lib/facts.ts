@@ -35,7 +35,7 @@ export type ClientFacts = {
   serviceRadius: string;
   certifications: string[];
   serviceAreas: ServiceArea[];
-  services: Service[];
+  services: Array<Service>;
   offers: Offer[];
   hours: Hours[];
   logoPath: string;

@@ -123,7 +123,7 @@ export default function SystemsGrid({
                 <div className="flex flex-1 flex-col gap-3 p-6">
                   <h3>{item.name}</h3>
                   {item.blurb ? (
-                    <p className="text-sm" style={{ color: "var(--color-ink-muted)" }}>
+                    <p style={{ color: "var(--color-ink-muted)" }}>
                       {item.blurb}
                     </p>
                   ) : null}

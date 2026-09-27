@@ -60,39 +60,6 @@ export default function Home() {
         }
       />
 
-      {/* GAP 2 + GAP 5: Stat strip immediately below hero with BBB social proof (copy.md Section 4) */}
-      <section style={{ borderBottom: "1px solid var(--color-border)" }}>
-        <div className="shell">
-          <div className="flex flex-col sm:flex-row items-center justify-between gap-4 py-5">
-            {/* Star rating / BBB badge */}
-            <div className="flex items-center gap-3">
-              <div className="flex items-center gap-1" aria-label="BBB accredited business">
-                {[1,2,3,4,5].map((n) => (
-                  <svg key={n} width="16" height="16" viewBox="0 0 20 20" fill="var(--color-accent-fill)" aria-hidden="true">
-                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                  </svg>
-                ))}
-              </div>
-              <span className="text-sm font-semibold" style={{ color: "var(--color-ink)" }}>BBB A-Rated</span>
-              <span className="text-sm" style={{ color: "var(--color-ink-muted)" }}>Accredited business serving Asheville</span>
-            </div>
-            <div className="hidden sm:flex items-center gap-8">
-              <div className="text-center">
-                <span className="block text-sm font-semibold" style={{ color: "var(--color-ink)" }}>80-Mile Coverage</span>
-                <span className="block text-xs" style={{ color: "var(--color-ink-muted)" }}>Western North Carolina</span>
-              </div>
-              <div className="text-center">
-                <span className="block text-sm font-semibold" style={{ color: "var(--color-ink)" }}>Free Test Included</span>
-                <span className="block text-xs" style={{ color: "var(--color-ink-muted)" }}>Water quality check before any recommendation</span>
-              </div>
-              <a href={phoneHref} className="btn btn-primary text-sm" data-cta="quote" style={{ borderRadius: 0 }}>
-                Get My Free Test
-              </a>
-            </div>
-          </div>
-        </div>
-      </section>
-
       {/* H-02: WhySystems:cards */}
       <WhySystems
         eyebrow="WHY CHOOSE US"
@@ -158,6 +125,39 @@ export default function Home() {
         ]}
       />
 
+      {/* GAP 2 + GAP 5: Stat strip with BBB social proof (copy.md Section 4) */}
+      <section style={{ borderBottom: "1px solid var(--color-border)" }}>
+        <div className="shell">
+          <div className="flex flex-col sm:flex-row items-center justify-between gap-4 py-5">
+            {/* Star rating / BBB badge */}
+            <div className="flex items-center gap-3">
+              <div className="flex items-center gap-1" aria-label="BBB accredited business">
+                {[1,2,3,4,5].map((n) => (
+                  <svg key={n} width="16" height="16" viewBox="0 0 20 20" fill="var(--color-accent-fill)" aria-hidden="true">
+                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                  </svg>
+                ))}
+              </div>
+              <span className="text-sm font-semibold" style={{ color: "var(--color-ink)" }}>BBB A-Rated</span>
+              <span className="text-sm" style={{ color: "var(--color-ink-muted)" }}>Accredited business serving Asheville</span>
+            </div>
+            <div className="hidden sm:flex items-center gap-8">
+              <div className="text-center">
+                <span className="block text-sm font-semibold" style={{ color: "var(--color-ink)" }}>80-Mile Coverage</span>
+                <span className="block text-xs" style={{ color: "var(--color-ink-muted)" }}>Western North Carolina</span>
+              </div>
+              <div className="text-center">
+                <span className="block text-sm font-semibold" style={{ color: "var(--color-ink)" }}>Free Test Included</span>
+                <span className="block text-xs" style={{ color: "var(--color-ink-muted)" }}>Water quality check before any recommendation</span>
+              </div>
+              <a href={phoneHref} className="btn btn-primary text-sm" data-cta="quote" style={{ borderRadius: 0 }}>
+                Get My Free Test
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* CTA Re-ask Band */}
       <section className="section on-alt" style={{ paddingTop: "clamp(1.5rem,3vw,2.5rem)", paddingBottom: "clamp(1.5rem,3vw,2.5rem)" }}>
         <div className="shell flex flex-col sm:flex-row items-center justify-between gap-4">
@@ -188,7 +188,7 @@ export default function Home() {
             ].map((concern) => (
               <div key={concern.title} className="p-6" style={{ border: "1px solid var(--color-border)", background: "var(--color-surface)", color: "var(--color-ink)" }}>
                 <h3 className="text-base font-semibold mb-2" style={{ color: "var(--color-ink)" }}>{concern.title}</h3>
-                <p className="text-sm leading-relaxed" style={{ color: "var(--color-ink-muted)" }}>{concern.body}</p>
+                <p className="leading-relaxed" style={{ color: "var(--color-ink-muted)" }}>{concern.body}</p>
               </div>
             ))}
           </div>
@@ -277,7 +277,7 @@ export default function Home() {
             ].map((stat) => (
               <div key={stat.label}>
                 <p className="text-5xl md:text-6xl font-bold tracking-tight mb-2" style={{ color: "var(--color-accent-fill)", fontFamily: "var(--font-display)" }}>{stat.value}</p>
-                <p className="text-sm font-medium" style={{ color: "var(--color-ink-muted)" }}>{stat.label}</p>
+                <span className="block text-sm font-medium" style={{ color: "var(--color-ink-muted)" }}>{stat.label}</span>
               </div>
             ))}
           </div>

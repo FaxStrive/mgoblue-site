@@ -194,7 +194,7 @@ export default function VideoHero({
                 {accentLine ? (
                   <>
                     <br />
-                    <span style={{ color: "var(--color-accent-fill)" }}>{accentLine}</span>
+                    <span style={{ color: "var(--color-accent-text-on-dark)" }}>{accentLine}</span>
                   </>
                 ) : null}
               </h1>
