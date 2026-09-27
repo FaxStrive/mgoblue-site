@@ -96,7 +96,7 @@ export default function Home() {
               description: "Whole-home and point-of-use filters remove contaminants, chlorine, and sediment. Clean water at every tap.",
               imageSrc: "/images/services/water-filters-hero.jpg",
               imageAlt: "Whole-home water filter installation under kitchen sink",
-              ctaLabel: "Explore Water Filters →",
+              ctaLabel: "Get clean water at every tap",
               ctaHref: "/services/water-filters",
             },
             {
@@ -104,7 +104,7 @@ export default function Home() {
               description: "Multi-stage filtration systems address complex contamination including iron, sulfur, and biological concerns.",
               imageSrc: "/images/services/water-filtration-hero.jpg",
               imageAlt: "Multi-stage water filtration system installed in utility room",
-              ctaLabel: "Explore Water Filtration →",
+              ctaLabel: "Remove iron, sulfur, and more",
               ctaHref: "/services/water-filtration",
             },
             {
@@ -112,7 +112,7 @@ export default function Home() {
               description: "Eliminate hardness, scale buildup, and the damage it does to your appliances and plumbing over time.",
               imageSrc: "/images/services/water-softeners-hero.jpg",
               imageAlt: "Water softener system installation in residential garage",
-              ctaLabel: "Explore Water Softeners →",
+              ctaLabel: "Stop hard water from damaging your home",
               ctaHref: "/services/water-softeners",
             },
             {
@@ -120,7 +120,7 @@ export default function Home() {
               description: "Complete well water treatment from source to tap - testing, treatment, and peace of mind for rural homes.",
               imageSrc: "/images/services/well-water-hero.jpg",
               imageAlt: "Residential well water system in Western North Carolina",
-              ctaLabel: "Explore Well Water →",
+              ctaLabel: "Treat your well from source to tap",
               ctaHref: "/services/well-water",
             },
           ]}
