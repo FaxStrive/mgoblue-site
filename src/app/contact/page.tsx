@@ -9,7 +9,7 @@ import type { ClientFacts } from "@/components/interactive/facts";
 export const metadata: Metadata = {
   title: "Contact | Pure Home 365 - Schedule Your Free Water Test",
   description:
-    "Schedule your free water test with Pure Home 365, Asheville NC. Financing from $96/month with $0 down. BBB A rated.",
+    "Schedule your free water test with Pure Home 365, Asheville NC. Financing from $96/month with $0 down. Better Business Bureau A rated.",
 };
 
 const toolFacts: ClientFacts = {

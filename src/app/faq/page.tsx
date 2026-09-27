@@ -48,7 +48,7 @@ export default function FaqPage() {
       <ProofBand
         variant="promise"
         items={[
-          { value: "BBB A Rating", label: "Accredited business in Asheville." },
+          { value: "Better Business Bureau A Rating", label: "Accredited business in Asheville." },
           { value: "Free Water Test", label: "Your test answers more than any FAQ." },
           { value: "Local Team", label: "We are a phone call away." },
           { value: "No Contract", label: "Flexible options, no lock-in." },

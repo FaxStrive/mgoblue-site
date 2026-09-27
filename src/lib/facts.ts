@@ -72,7 +72,7 @@ export const facts: ClientFacts = {
       description: "Complete well water treatment from source to tap - testing, treatment, and peace of mind for rural homes.",
     },
   ],
-  certifications: ["BBB A Rating"],
+  certifications: ["Better Business Bureau A Rating"],
   logoPath: "/logo.svg",
   serviceAreas: [
     { city: "Asheville", state: "NC" },

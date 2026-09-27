@@ -67,7 +67,7 @@ export default function GalleryPage() {
         variant="promise"
         items={[
           { value: "Every install", label: "looks like this. Professional finish guaranteed." },
-          { value: "BBB A Rating", label: "Accredited business in Asheville." },
+          { value: "Better Business Bureau A Rating", label: "Accredited business in Asheville." },
           { value: "Local Team", label: "Same technicians every time." },
           { value: "Free Test First", label: "We design around your water." },
         ]}

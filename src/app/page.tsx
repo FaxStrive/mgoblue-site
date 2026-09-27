@@ -19,7 +19,7 @@ import CountUpStats from "@/components/interactive/CountUpStats";
 export const metadata: Metadata = {
   title: "Pure Home 365 | Asheville Water Treatment - Free Water Test",
   description:
-    "Custom water filtration, softeners, and well water treatment for Asheville, NC and 80 miles around. BBB A rated. Free water test. $0 down financing available.",
+    "Custom water filtration, softeners, and well water treatment for Asheville, NC and 80 miles around. Better Business Bureau A rated. Free water test. $0 down financing available.",
 };
 
 const toolFacts = {
@@ -31,7 +31,7 @@ const MARQUEE_ITEMS = [
   "For life",
   "Same-day install",
   "Free water test",
-  "BBB A-Rated",
+  "Better Business Bureau A-Rated",
   "Asheville + 80 miles",
   "Well and municipal",
   "No obligation",
@@ -48,7 +48,7 @@ export default function Home() {
         variant="full-bleed"
         eyebrow="ASHEVILLE WATER FILTRATION"
         headline="Pure water. Every faucet."
-        subhead="Custom filtration for well and municipal water. BBB A-rated. Serving Western North Carolina and 80 miles around."
+        subhead="Custom filtration for well and municipal water. Better Business Bureau A-rated. Serving Western North Carolina and 80 miles around."
         posterSrc="/images/hero/tap-fill.jpg"
         posterAlt="Water pouring cleanly from a faucet in an Asheville area home"
         primaryCtaLabel="Get Your Free Water Test"
@@ -86,7 +86,7 @@ export default function Home() {
               </p>
               <ul className="mt-6 flex flex-col gap-3">
                 {[
-                  "BBB A-rated Asheville company",
+                  "Better Business Bureau A-rated Asheville company",
                   "Same-day results, explained in plain language",
                   "$0 down financing available from $96/month",
                 ].map((item) => (
@@ -101,7 +101,7 @@ export default function Home() {
               <h3 className="text-lg font-semibold mb-4">Schedule Your Free Test</h3>
               <LeadForm />
               <div className="mt-4 flex flex-wrap items-center gap-3 text-xs" style={{ color: "var(--color-ink-muted)" }}>
-                <span>BBB A Rating</span>
+                <span>Better Business Bureau A Rating</span>
                 <span aria-hidden="true">|</span>
                 <span>Asheville + 80 Miles</span>
                 <span aria-hidden="true">|</span>
@@ -396,7 +396,7 @@ export default function Home() {
       <ProofBand
         variant="promise"
         items={[
-          { value: "BBB A Rating", label: "Accredited business serving Asheville" },
+          { value: "Better Business Bureau A Rating", label: "Accredited business serving Asheville" },
           {
             value: "80-Mile Coverage",
             label: "Western North Carolina service territory",
@@ -429,7 +429,7 @@ export default function Home() {
         <div className="shell">
           <CountUpStats
             stats={[
-              { value: "A", label: "BBB Accredited Rating" },
+              { value: "A", label: "Better Business Bureau Accredited Rating" },
               {
                 numericValue: 80,
                 suffix: " mi",

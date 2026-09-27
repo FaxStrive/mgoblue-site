@@ -12,7 +12,7 @@ import {
 export const metadata: Metadata = {
   title: "About | Pure Home 365 - Local Asheville Water Treatment",
   description:
-    "Pure Home 365 is a local Asheville, NC water treatment company. Custom systems for well and municipal water. BBB A rated.",
+    "Pure Home 365 is a local Asheville, NC water treatment company. Custom systems for well and municipal water. Better Business Bureau A rated.",
 };
 
 export default function AboutPage() {
@@ -37,7 +37,7 @@ export default function AboutPage() {
       <OriginStory
         eyebrow="OUR STORY"
         headline="Built on a Simple Idea"
-        body="Pure Home 365 was built around a simple idea: every home deserves water that is safe, clean, and right for the way that home actually uses water. We customize our systems to meet your needs whether you are on a well or a municipal line. We carry a variety of solutions - not to overwhelm you with choices, but to make sure something fits your needs and your budget. We are BBB A rated and committed to honest assessments. We are not a national franchise. We are a local Asheville company, and the communities we serve are the communities we live in. That matters to us in ways it simply cannot matter to a call center in another state. We serve Asheville and an 80-mile radius across Western North Carolina."
+        body="Pure Home 365 was built around a simple idea: every home deserves water that is safe, clean, and right for the way that home actually uses water. We customize our systems to meet your needs whether you are on a well or a municipal line. We carry a variety of solutions - not to overwhelm you with choices, but to make sure something fits your needs and your budget. We are Better Business Bureau A rated and committed to honest assessments. We are not a national franchise. We are a local Asheville company, and the communities we serve are the communities we live in. That matters to us in ways it simply cannot matter to a call center in another state. We serve Asheville and an 80-mile radius across Western North Carolina."
         imageSrc="/images/local/asheville-install-scene.jpg"
         imageAlt="Water treatment installation in an Asheville area home"
         ctaLabel="Get a Free Assessment"
@@ -69,7 +69,7 @@ export default function AboutPage() {
       <ProofBand
         variant="promise"
         items={[
-          { value: "BBB A Rating", label: "Accredited business in Asheville, NC." },
+          { value: "Better Business Bureau A Rating", label: "Accredited business in Asheville, NC." },
           { value: "Free Water Test", label: "Every recommendation starts with your own test results." },
           { value: "Local Team", label: "Our team lives and works in Western NC." },
           { value: "No Pressure", label: "Honest assessment. No high-pressure sales tactics." },

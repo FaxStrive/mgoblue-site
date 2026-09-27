@@ -12,7 +12,7 @@ import {
 export const metadata: Metadata = {
   title: "Water Treatment Services | Pure Home 365 - Asheville NC",
   description:
-    "Water filters, water filtration, water softeners, and well water treatment for Asheville, NC and 80 miles. BBB A rated. Free water test.",
+    "Water filters, water filtration, water softeners, and well water treatment for Asheville, NC and 80 miles. Better Business Bureau A rated. Free water test.",
 };
 
 export default function ServicesPage() {
@@ -73,7 +73,7 @@ export default function ServicesPage() {
       <ProofBand
         variant="promise"
         items={[
-          { value: "BBB A Rating", label: "Accredited business in Asheville, NC." },
+          { value: "Better Business Bureau A Rating", label: "Accredited business in Asheville, NC." },
           { value: "Free Water Test", label: "Every recommendation starts with your own results." },
           { value: "Local Asheville Team", label: "Your neighbors. Not a call center." },
           { value: "No High-Pressure Sales", label: "We test first and recommend based on what we find." },

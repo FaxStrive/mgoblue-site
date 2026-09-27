@@ -10,7 +10,7 @@ import { StickyCallBar } from "@/components/sections";
 export const metadata: Metadata = {
   title: "Pure Home 365 | Asheville Water Treatment - Free Water Test",
   description:
-    "Custom water filtration, softeners, and well water treatment for Asheville, NC and 80 miles around. BBB A rated. Free water test. $0 down financing available.",
+    "Custom water filtration, softeners, and well water treatment for Asheville, NC and 80 miles around. Better Business Bureau A rated. Free water test. $0 down financing available.",
 };
 
 const navLinks = [
@@ -82,7 +82,7 @@ export default function RootLayout({
           phoneHref={facts.phoneHref}
           email={facts.email}
           navLinks={footerLinks}
-          legalLine="BBB A Rating | Serving Asheville, NC and 80 miles"
+          legalLine="Better Business Bureau A Rating | Serving Asheville, NC and 80 miles"
           ctaLabel="Get Your Free Water Test"
           ctaHref="/contact"
         />

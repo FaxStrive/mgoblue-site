@@ -87,7 +87,7 @@ export default async function ServiceDetailPage({
               </a>
             </div>
             <div className="p-5" style={{ border: "1px solid var(--color-border)" }}>
-              <p className="text-sm font-semibold mb-2">BBB A Rating</p>
+              <p className="text-sm font-semibold mb-2">Better Business Bureau A Rating</p>
               <div className="text-xs" style={{ color: "var(--color-ink-muted)" }}>Accredited business. Serving Asheville + 80 miles.</div>
             </div>
           </aside>
@@ -135,7 +135,7 @@ export default async function ServiceDetailPage({
         <div className="shell">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
             {[
-              { value: "A", label: "BBB Accredited Rating" },
+              { value: "A", label: "Better Business Bureau Accredited Rating" },
               { value: "80 mi", label: "Service Radius from Asheville" },
               { value: "Free", label: "Water Quality Test Included" },
               { value: "1 Day", label: "Typical Installation Time" },
@@ -188,7 +188,7 @@ export default async function ServiceDetailPage({
       <ProofBand
         variant="promise"
         items={[
-          { value: "BBB A Rating", label: "Accredited business in Asheville, NC." },
+          { value: "Better Business Bureau A Rating", label: "Accredited business in Asheville, NC." },
           { value: "Free Water Test", label: "Every recommendation starts with your own test results." },
           { value: "Local Team", label: "Asheville-based technicians." },
           { value: "No Contract", label: "Month-to-month financing or outright purchase." },
