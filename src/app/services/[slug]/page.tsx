@@ -8,6 +8,8 @@ import {
   ProofBand,
   ClosingCta,
   ServiceAreas,
+  FullBleedBand,
+  Faq,
 } from "@/components/sections";
 
 interface ServicePageParams {
@@ -127,6 +129,61 @@ export default async function ServiceDetailPage({
           </div>
         </div>
       </section>
+
+      {/* Stat band */}
+      <section className="section on-alt">
+        <div className="shell">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+            {[
+              { value: "A", label: "BBB Accredited Rating" },
+              { value: "80 mi", label: "Service Radius from Asheville" },
+              { value: "Free", label: "Water Quality Test Included" },
+              { value: "1 Day", label: "Typical Installation Time" },
+            ].map((stat) => (
+              <div key={stat.label}>
+                <p className="text-5xl md:text-6xl font-bold tracking-tight mb-2" style={{ color: "var(--color-accent-fill)", fontFamily: "var(--font-display)" }}>{stat.value}</p>
+                <span className="block text-sm font-medium" style={{ color: "var(--color-ink-muted)" }}>{stat.label}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Feature image band */}
+      <FullBleedBand
+        imageSrc={content.bodyImage}
+        imageAlt={content.bodyImageAlt}
+        eyebrow="LOCAL EXPERTISE"
+        headline={`Professional ${content.name} in Western NC`}
+        body="Every system is installed by our Asheville-based team. Clean work, labeled components, and a walkthrough so you know how your system runs."
+        ctaLabel="Schedule Your Free Water Test"
+        ctaHref="/contact"
+        tone="dark"
+      />
+
+      {/* FAQs */}
+      <Faq
+        eyebrow="COMMON QUESTIONS"
+        headline={`${content.name} FAQ`}
+        items={[
+          {
+            question: `How long does a ${content.name.toLowerCase()} installation take?`,
+            answer: "Most installations are completed in a single day. Our technicians arrive on time, work cleanly, and leave you with a system that is fully set up and labeled before they go.",
+          },
+          {
+            question: "Do I need to be home during the installation?",
+            answer: "Yes. An adult needs to be present so we can walk you through the system, answer any questions, and make sure you are comfortable with how it works before we leave.",
+          },
+          {
+            question: "Will this work with my well water?",
+            answer: "Yes. We treat both municipal and private well water. We test your water first so the system we recommend is right for what is actually in your supply.",
+          },
+          {
+            question: "What does the free water test cover?",
+            answer: "We test for the contaminants most common in Western NC: hardness, iron, chlorine, sulfur, pH, and sediment. If you have a specific concern, tell us and we will include it in the panel.",
+          },
+        ]}
+      />
 
       <ProofBand
         variant="promise"
