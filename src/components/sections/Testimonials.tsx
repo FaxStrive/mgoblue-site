@@ -79,7 +79,7 @@ export default function Testimonials({
 
         <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
           {items.map((item, i) => (
-            <Reveal key={item.name} style={{ "--reveal-delay": `${i * 80}ms` } as React.CSSProperties}>
+            <Reveal key={item.name} delayMs={i * 80}>
               <article
                 className="card flex flex-col gap-4 p-6"
                 style={{ backgroundColor: "var(--color-surface)", border: "1px solid var(--color-border)" }}
